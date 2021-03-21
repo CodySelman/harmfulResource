@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class CardManager : MonoBehaviour
+public class CardManager
 {
     public List<Card> deck = new List<Card>();
     public List<Card> discardPile = new List<Card>();
@@ -103,6 +102,4 @@ public class CardManager : MonoBehaviour
         }
     }
     #endregion
-
-    
 }

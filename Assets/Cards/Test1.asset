@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5b0d92430474947ac2f611101aa521, type: 3}
   m_Name: Test1
   m_EditorClassIdentifier: 
-  name: 
-  description: 
-  image: {fileID: 0}
+  name: mcMan
+  description: he give burger
+  image: {fileID: 21300000, guid: b1dc58f37be3f144b878eda73775b31e, type: 3}

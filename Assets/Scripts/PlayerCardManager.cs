@@ -5,6 +5,8 @@ using TMPro;
 
 public class PlayerCardManager : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject card;
     public TMP_Text deckNumCards;
     public TMP_Text discardNumCards;
 
@@ -12,10 +14,10 @@ public class PlayerCardManager : MonoBehaviour
     public List<Card> discardPile = new List<Card>();
     public List<Card> hand = new List<Card>();
 
-    [HideInInspector]
     private int startingHandSize = 5;
-
     private CardManager cardManager;
+
+    public List<GameObject> handCardPositions;
 
     void Start() {
         cardManager = new CardManager(deck, discardPile, hand, startingHandSize);
@@ -36,34 +38,57 @@ public class PlayerCardManager : MonoBehaviour
         discardNumCards.text = discardPile.Count.ToString();
     }
 
+    void UpdateHandDisplay() {
+        // remove old hand render
+        foreach (GameObject pos in handCardPositions) {
+            foreach (Transform child in pos.transform) {
+                GameObject.Destroy(child.gameObject);
+            }
+        }
+        // render cards in hand
+        for (int i = 0; i < hand.Count; i++) {
+            if (i >=6) break;
+            GameObject handCard = Object.Instantiate(card);
+            handCard.GetComponent<CardDisplay>().card = hand[i];
+            handCard.transform.parent = handCardPositions[i].transform;
+            handCard.transform.localPosition = Vector3.zero;
+        }
+    }
+
+    void UpdateAllDisplay() {
+        UpdateDeckNumCardsText();
+        UpdateDiscardNumCardsText();
+        UpdateHandDisplay();
+    }
+
     // TODO delete me
     public void DrawCardTest() {
         cardManager.DrawCard();
-        UpdateDeckAndDiscardNumCardsText();
+        UpdateAllDisplay();
     }
 
     // TODO delete me
     public void DrawCardsTest(int a) {
         cardManager.DrawCards(a);
-        UpdateDeckAndDiscardNumCardsText();
+        UpdateAllDisplay();
     }
 
     // TODO delete me
     public void DiscardFirstCardTest() {
         cardManager.DiscardFirstCard();
-        UpdateDiscardNumCardsText();
+        UpdateAllDisplay();
     }
 
     // TODO delete me
     public void DiscardCardsTest(int a) {
         cardManager.DiscardCards(a);
-        UpdateDiscardNumCardsText();
+        UpdateAllDisplay();
     }
 
     // TODO delete me
     public void DiscardHandTest() {
         cardManager.DiscardHand();
-        UpdateDiscardNumCardsText();
+        UpdateAllDisplay();
     }
 
     // TODO delete me

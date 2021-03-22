@@ -33,7 +33,7 @@ public class CardManager
             UnsafeDrawCard();
         } else if (discardPile.Count >= 1) {
             // if discardPile has at least one card, shuffle discard into deck then draw
-            deck = CardUtility.Shuffle(discardPile);
+            deck.AddRange(CardUtility.Shuffle(discardPile));
             discardPile.RemoveAll((c) => true);
             UnsafeDrawCard();
         }

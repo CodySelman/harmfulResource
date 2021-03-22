@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerCardManager : MonoBehaviour
 {
+    public TMP_Text deckNumCards;
+    public TMP_Text discardNumCards;
+
     public List<Card> deck = new List<Card>();
     public List<Card> discardPile = new List<Card>();
     public List<Card> hand = new List<Card>();
@@ -15,26 +19,51 @@ public class PlayerCardManager : MonoBehaviour
 
     void Start() {
         cardManager = new CardManager(deck, discardPile, hand, startingHandSize);
+        UpdateDeckNumCardsText();
+        UpdateDiscardNumCardsText();
+    }
+
+    void UpdateDeckNumCardsText() {
+        deckNumCards.text = deck.Count.ToString();
+    }
+
+    void UpdateDiscardNumCardsText() {
+        discardNumCards.text = discardPile.Count.ToString();
+    }
+
+    void UpdateDeckAndDiscardNumCardsText() {
+        deckNumCards.text = deck.Count.ToString();
+        discardNumCards.text = discardPile.Count.ToString();
     }
 
     // TODO delete me
     public void DrawCardTest() {
         cardManager.DrawCard();
+        UpdateDeckAndDiscardNumCardsText();
     }
 
     // TODO delete me
     public void DrawCardsTest(int a) {
         cardManager.DrawCards(a);
+        UpdateDeckAndDiscardNumCardsText();
     }
 
     // TODO delete me
     public void DiscardFirstCardTest() {
         cardManager.DiscardFirstCard();
+        UpdateDiscardNumCardsText();
     }
 
     // TODO delete me
     public void DiscardCardsTest(int a) {
         cardManager.DiscardCards(a);
+        UpdateDiscardNumCardsText();
+    }
+
+    // TODO delete me
+    public void DiscardHandTest() {
+        cardManager.DiscardHand();
+        UpdateDiscardNumCardsText();
     }
 
     // TODO delete me
@@ -52,7 +81,7 @@ public class PlayerCardManager : MonoBehaviour
             Debug.Log("- " + i + ": " + hand[i].name);
         }
     }
-    
+
     // TODO delete me
     public void LogDiscard() {
         Debug.Log("Discard:");

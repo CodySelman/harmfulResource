@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerCardManager
+  - PauseMenu
+  - SupplyCardManager
+  - EventCardManager
   layers:
   - Default
   - TransparentFX
@@ -47,4 +50,7 @@ TagManager:
     locked: 0
   - name: CardForeground
     uniqueID: 3921218567
+    locked: 0
+  - name: UI
+    uniqueID: 4168359483
     locked: 0

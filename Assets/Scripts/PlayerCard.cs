@@ -8,7 +8,6 @@ public class PlayerCard : CardBase
 
     void OnMouseOver() {
         if (Input.GetMouseButtonDown(0)) {
-            Debug.Log(card.name + " clicked");
             PlayerCardManager.instance.PlayCard(card);
         }
 

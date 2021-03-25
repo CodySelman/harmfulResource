@@ -76,7 +76,19 @@ public class PlayerCardManager : MonoBehaviour
 
     public void PlayCard(Card card) {
         Debug.Log("Play Card: " + card.name);
-        // cardToPlay.playCard();
+        foreach (CardEffect cardEffect in card.effects) {
+            switch (cardEffect.effect) {
+                case CardEffects.DrawCard:
+                    cardManager.DrawCards(cardEffect.amount);
+                    break;
+                case CardEffects.DiscardCard:
+                    cardManager.DiscardCards(cardEffect.amount);
+                    break;
+                default:
+                    Debug.Log("PlayCard default hit");
+                    break;
+            }
+        }
         cardManager.DiscardCard(card);
         UpdateAllDisplay();
     }

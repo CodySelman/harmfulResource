@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Publisher : MonoBehaviour
+public class CardBase : MonoBehaviour
 {
-    public delegate void PublishEvent ();
+    public Card card;
 }

@@ -3838,7 +3838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46474135a141db147ae367598eb2ef85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 6350889919189165879, guid: a586671da6fae2f419302463bc090095, type: 3}
+  playerCard: {fileID: 6350889919189165879, guid: a586671da6fae2f419302463bc090095, type: 3}
   deckNumCards: {fileID: 1401927165}
   discardNumCards: {fileID: 745422007}
   deck: []

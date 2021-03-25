@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class CardManager
 {
@@ -57,6 +58,19 @@ public class CardManager
     #endregion
 
     #region Discard Card Methods
+    ///<summary>
+    ///Moves specified card from hand to discard
+    ///</summary>
+    public void DiscardCard(Card card) {
+        Debug.Log("Discard Card");
+        if (hand.Contains(card)) {
+            int index = hand.IndexOf(card);
+            Card temp = hand[index];
+            hand.RemoveAt(index);
+            discardPile.Add(temp);
+        }
+    }
+
     ///<summary>
     ///Moves card from hand[0] to discard
     ///</summary>

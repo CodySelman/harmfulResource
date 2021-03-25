@@ -5,8 +5,11 @@ using TMPro;
 
 public class PlayerCardManager : MonoBehaviour
 {
+    // singleton instance
+    public static PlayerCardManager instance = null;
+
     [SerializeField]
-    private GameObject card;
+    private GameObject playerCard;
     public TMP_Text deckNumCards;
     public TMP_Text discardNumCards;
 
@@ -18,6 +21,16 @@ public class PlayerCardManager : MonoBehaviour
     private CardManager cardManager;
 
     public List<GameObject> handCardPositions;
+
+    void Awake() {
+        // singleton setup
+        if (instance == null) {
+            Object.DontDestroyOnLoad(this.gameObject);
+            instance = this;
+        } else if (instance != this) {
+            Destroy(gameObject);
+        }
+    }
 
     void Start() {
         cardManager = new CardManager(deck, discardPile, hand, startingHandSize);
@@ -48,8 +61,8 @@ public class PlayerCardManager : MonoBehaviour
         // render cards in hand
         for (int i = 0; i < hand.Count; i++) {
             if (i >=6) break;
-            GameObject handCard = Object.Instantiate(card);
-            handCard.GetComponent<CardDisplay>().card = hand[i];
+            GameObject handCard = Object.Instantiate(playerCard);
+            handCard.GetComponent<CardBase>().card = hand[i];
             handCard.transform.parent = handCardPositions[i].transform;
             handCard.transform.localPosition = Vector3.zero;
         }
@@ -59,6 +72,13 @@ public class PlayerCardManager : MonoBehaviour
         UpdateDeckNumCardsText();
         UpdateDiscardNumCardsText();
         UpdateHandDisplay();
+    }
+
+    public void PlayCard(Card card) {
+        Debug.Log("Play Card: " + card.name);
+        // cardToPlay.playCard();
+        cardManager.DiscardCard(card);
+        UpdateAllDisplay();
     }
 
     // TODO delete me

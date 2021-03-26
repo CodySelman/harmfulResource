@@ -18,7 +18,8 @@ public class PlayerCardManager : MonoBehaviour
     public List<Card> hand = new List<Card>();
 
     private int startingHandSize = 5;
-    private CardManager cardManager;
+    [HideInInspector]
+    public CardManager cardManager;
 
     public List<GameObject> handCardPositions;
 
@@ -51,6 +52,7 @@ public class PlayerCardManager : MonoBehaviour
         discardNumCards.text = discardPile.Count.ToString();
     }
 
+    // TODO consolidate with SupplyCardManager method?
     void UpdateHandDisplay() {
         // remove old hand render
         foreach (GameObject pos in handCardPositions) {
@@ -68,7 +70,7 @@ public class PlayerCardManager : MonoBehaviour
         }
     }
 
-    void UpdateAllDisplay() {
+    public void UpdateAllDisplay() {
         UpdateDeckNumCardsText();
         UpdateDiscardNumCardsText();
         UpdateHandDisplay();

@@ -17,6 +17,8 @@ public class GameController : MonoBehaviour
     public float hourlyWage = 7.5f;
 
     public List<Card> testDeck;
+    public List<Card> testSupply;
+    public List<Card> testEvents;
 
     void Awake() {
         // singleton setup
@@ -35,11 +37,11 @@ public class GameController : MonoBehaviour
 
         eventCM = GameObject.FindGameObjectWithTag(Constants.TAG_EVENT_CARD_MANAGER).GetComponent<EventCardManager>();
         // TODO initialize with real deck
-        eventCM.deck = CardUtility.Shuffle(testDeck);
+        eventCM.deck = CardUtility.Shuffle(testEvents);
 
         supplyCM = GameObject.FindGameObjectWithTag(Constants.TAG_SUPPLY_CARD_MANAGER).GetComponent<SupplyCardManager>();
         // TODO initialize with real deck
-        supplyCM.deck = CardUtility.Shuffle(testDeck);
+        supplyCM.deck = CardUtility.Shuffle(testSupply);
     }
 
     void ExitGame() {

@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SupplyCard : MonoBehaviour
+public class SupplyCard : CardBase
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    void OnMouseOver() {
+        if (Input.GetMouseButtonDown(0)) {
+            SupplyCardManager.instance.BuyCard(card);
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // TODO card zoom
+        // if (Input.GetMouseButtonDown(1)) {
+        //     Debug.Log(nameText + " right clicked");
+        // }
     }
 }

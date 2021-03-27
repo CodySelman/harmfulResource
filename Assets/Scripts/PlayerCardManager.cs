@@ -21,7 +21,14 @@ public class PlayerCardManager : MonoBehaviour
     [HideInInspector]
     public CardManager cardManager;
 
+    // TODO delete me
     public List<GameObject> handCardPositions;
+    [SerializeField]
+    private GameObject handCardParent;
+    [SerializeField]
+    private int handMinXPos = -5;
+    [SerializeField]
+    private int handMaxXPos = 5;
 
     void Awake() {
         // singleton setup
@@ -68,12 +75,15 @@ public class PlayerCardManager : MonoBehaviour
         }
         // render cards in hand
         for (int i = 0; i < hand.Count; i++) {
-            if (i >=6) break;
+            // if (i >=6) break;
+            // determine card positions based on number of cards
             GameObject handCard = Object.Instantiate(playerCard);
             handCard.GetComponent<CardBase>().card = hand[i];
             handCard.transform.parent = handCardPositions[i].transform;
             handCard.transform.localPosition = Vector3.zero;
         }
+
+        
     }
 
     public void UpdateAllDisplay() {
@@ -112,57 +122,16 @@ public class PlayerCardManager : MonoBehaviour
         UpdateAllDisplay();
     }
 
-    // TODO delete me
-    public void DrawCardTest() {
-        cardManager.DrawCard();
-        UpdateAllDisplay();
-    }
-
-    // TODO delete me
-    public void DrawCardsTest(int a) {
-        cardManager.DrawCards(a);
-        UpdateAllDisplay();
-    }
-
-    // TODO delete me
-    public void DiscardFirstCardTest() {
-        cardManager.DiscardFirstCard();
-        UpdateAllDisplay();
-    }
-
-    // TODO delete me
-    public void DiscardCardsTest(int a) {
-        cardManager.DiscardCards(a);
-        UpdateAllDisplay();
-    }
-
-    // TODO delete me
-    public void DiscardHandTest() {
+    public void DiscardHand() {
         cardManager.DiscardHand();
         UpdateAllDisplay();
     }
 
-    // TODO delete me
-    public void LogDeck() {
-        Debug.Log("Deck:");
-        for (int i = 0; i < deck.Count; i++) {
-            Debug.Log("- " + i + ": " + deck[i].name);
-        }
+    public void DrawHand() {
+        cardManager.DiscardHand();
+        cardManager.DrawHand();
+        UpdateAllDisplay();
     }
 
-    // TODO delete me
-    public void LogHand() {
-        Debug.Log("Hand:");
-        for (int i = 0; i < hand.Count; i++) {
-            Debug.Log("- " + i + ": " + hand[i].name);
-        }
-    }
 
-    // TODO delete me
-    public void LogDiscard() {
-        Debug.Log("Discard:");
-        for (int i = 0; i < discardPile.Count; i++) {
-            Debug.Log("- " + i + ": " + discardPile[i].name);
-        }
-    }
 }

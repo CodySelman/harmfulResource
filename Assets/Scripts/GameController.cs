@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour
     public TMP_Text moneyText;
     public TMP_Text healthText;
     public TMP_Text wageText;
+    public TMP_Text turnText;
 
     // player stats
     private int money = 0;
@@ -66,6 +67,16 @@ public class GameController : MonoBehaviour
             wageText.text = "Hourly Wage: $" + this.hourlyWage;
         }
     }
+    private int turnCount = 1;
+    public int TurnCount {
+        get {
+            return this.turnCount;
+        }
+        set {
+            this.turnCount = value;
+            turnText.text = "Turn: " + this.turnCount;
+        }
+    }
 
     void Awake() {
         // singleton setup
@@ -89,6 +100,8 @@ public class GameController : MonoBehaviour
     }
 
     void InitializeGame() {
+        turnCount = 0;
+
         playerCM.Initialize();
         // // TODO initialize method for event deck
         eventCM.deck = CardUtility.Shuffle(testEvents);
@@ -100,6 +113,8 @@ public class GameController : MonoBehaviour
 
         winScreen.ShowWinScreen(false);
         loseScreen.ShowLoseScreen(false);
+
+        StartTurn();
     }
 
     public void RestartGame() {
@@ -122,5 +137,20 @@ public class GameController : MonoBehaviour
             Debug.Log("Game Over: You Lose");
             loseScreen.ShowLoseScreen(true);
         }
+    }
+
+    public void StartTurn() {
+        Debug.Log("StartTurn");
+        TurnCount += 1;
+        playerCM.DrawHand();
+        supplyCM.DrawSupply();
+        // new event
+    }
+
+    public void EndTurn() {
+        Debug.Log("EndTurn");
+        playerCM.DiscardHand();
+        supplyCM.DiscardHand();
+        StartTurn();
     }
 }

@@ -38,7 +38,16 @@ public class SupplyCardManager : MonoBehaviour
         discardPile = new List<Card>();
         hand = new List<Card>();
         cardManager = new CardManager(deck, discardPile, hand, startingHandSize);
+    }
+
+    public void DrawSupply() {
+        cardManager.DiscardHand();
         cardManager.DrawHand();
+        UpdateHandDisplay();
+    }
+
+    public void DiscardHand() {
+        cardManager.DiscardHand();
         UpdateHandDisplay();
     }
 

@@ -8667,6 +8667,18 @@ PrefabInstance:
       value: GameController
       objectReference: {fileID: 0}
     - target: {fileID: 1450931577796782255, guid: b1f1ac03d64bc8449baf31a90cb86bc0, type: 3}
+      propertyPath: wageText
+      value: 
+      objectReference: {fileID: 1424126461}
+    - target: {fileID: 1450931577796782255, guid: b1f1ac03d64bc8449baf31a90cb86bc0, type: 3}
+      propertyPath: moneyText
+      value: 
+      objectReference: {fileID: 1018469265}
+    - target: {fileID: 1450931577796782255, guid: b1f1ac03d64bc8449baf31a90cb86bc0, type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 1896980648}
+    - target: {fileID: 1450931577796782255, guid: b1f1ac03d64bc8449baf31a90cb86bc0, type: 3}
       propertyPath: testDeck.Array.size
       value: 10
       objectReference: {fileID: 0}

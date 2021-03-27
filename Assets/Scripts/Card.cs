@@ -9,15 +9,17 @@ public enum CardEffects {
 
 [System.Serializable]
 public class CardEffect {
-    public CardEffects effect;
-    public int amount;
+    public CardEffects effect = CardEffects.DrawCard;
+    public int amount = 0;
 }
 
 [CreateAssetMenu(fileName = "New Card", menuName = "Card")]
 public class Card : ScriptableObject
 {
     public new string name;
-    public string description;
     public Sprite image;
+    public int costMoney = 0;
+    public int costHealth = 0;
+    public string description;
     public List<CardEffect> effects;
 }

@@ -38,6 +38,16 @@ public class SupplyCardManager : MonoBehaviour
     public void BuyCard(Card card) {
         // check cost
         // if player can afford card
+        if (
+            card.costMoney > GameController.instance.Money ||
+            card.costHealth > GameController.instance.MentalHealth
+        ) {
+            // TODO ui feedback for can't afford
+            Debug.Log("can't afford card");
+            return;
+        }
+        GameController.instance.Money = GameController.instance.Money - card.costMoney;
+        GameController.instance.MentalHealth = GameController.instance.MentalHealth - card.costHealth;
         // remove card from supply hand
         Card temp = card;
         cardManager.TrashCard(hand, card);

@@ -34,9 +34,15 @@ public class PlayerCardManager : MonoBehaviour
     }
 
     void Start() {
+        // GameController handles initialization
+    }
+
+    public void Initialize() {
+        deck = CardUtility.Shuffle(GameController.instance.testDeck);
+        discardPile = new List<Card>();
+        hand = new List<Card>();
         cardManager = new CardManager(deck, discardPile, hand, startingHandSize);
-        UpdateDeckNumCardsText();
-        UpdateDiscardNumCardsText();
+        UpdateAllDisplay();
     }
 
     void UpdateDeckNumCardsText() {
@@ -77,7 +83,6 @@ public class PlayerCardManager : MonoBehaviour
     }
 
     public void PlayCard(Card card) {
-        Debug.Log("Play Card: " + card.name);
         foreach (CardEffect cardEffect in card.effects) {
             switch (cardEffect.effect) {
                 case CardEffects.DrawCard:
@@ -86,8 +91,20 @@ public class PlayerCardManager : MonoBehaviour
                 case CardEffects.DiscardCard:
                     cardManager.DiscardCards(cardEffect.amount);
                     break;
+                case CardEffects.GainMoney:
+                    GameController.instance.Money += cardEffect.amount;
+                    break;
+                case CardEffects.LoseMoney:
+                    GameController.instance.Money -= cardEffect.amount;
+                    break;
+                case CardEffects.GainHealth:
+                    GameController.instance.MentalHealth += cardEffect.amount;
+                    break;
+                case CardEffects.LoseHealth:
+                    GameController.instance.MentalHealth -= cardEffect.amount;
+                    break;
                 default:
-                    Debug.Log("PlayCard default hit");
+                    Debug.Log("PlayCard default hit for card: " + card.name);
                     break;
             }
         }

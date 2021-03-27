@@ -12,12 +12,17 @@ public class GameController : MonoBehaviour
     private EventCardManager eventCM;
     private SupplyCardManager supplyCM;
 
+    private WinScreen winScreen;
+    private LoseScreen loseScreen;
+
     [SerializeField]
     private int startingMoney = 100;
     [SerializeField]
     private int startingHealth = 100;
     [SerializeField]
     private float startingWage = 7.5f;
+    [SerializeField]
+    private float winMoney = 200;
 
     public List<Card> testDeck;
     public List<Card> testSupply;
@@ -36,6 +41,7 @@ public class GameController : MonoBehaviour
         set {
             this.money = value;
             moneyText.text = "Money: $" + this.money;
+            CheckForWin();
         }
     }
     private int mentalHealth = 0;
@@ -47,6 +53,7 @@ public class GameController : MonoBehaviour
             // if it hits 0, game over
             this.mentalHealth = value;
             healthText.text = "Health: " + this.mentalHealth;
+            CheckForLoss();
         }
     }
     private float hourlyWage = 7.5f;
@@ -72,23 +79,48 @@ public class GameController : MonoBehaviour
 
     void Start() {
         playerCM = GameObject.FindGameObjectWithTag(Constants.TAG_PLAYER_CARD_MANAGER).GetComponent<PlayerCardManager>();
-        // TODO initialize with real deck
-        playerCM.deck = CardUtility.Shuffle(testDeck);
-
         eventCM = GameObject.FindGameObjectWithTag(Constants.TAG_EVENT_CARD_MANAGER).GetComponent<EventCardManager>();
-        // TODO initialize with real deck
-        eventCM.deck = CardUtility.Shuffle(testEvents);
-
         supplyCM = GameObject.FindGameObjectWithTag(Constants.TAG_SUPPLY_CARD_MANAGER).GetComponent<SupplyCardManager>();
-        // TODO initialize with real deck
-        supplyCM.deck = CardUtility.Shuffle(testSupply);
+        
+        winScreen = GetComponent<WinScreen>();
+        loseScreen = GetComponent<LoseScreen>();
+
+        InitializeGame();
+    }
+
+    void InitializeGame() {
+        playerCM.Initialize();
+        // // TODO initialize method for event deck
+        eventCM.deck = CardUtility.Shuffle(testEvents);
+        supplyCM.Initialize();
 
         Money = startingMoney;
         MentalHealth = startingHealth;
         HourlyWage = startingWage;
+
+        winScreen.ShowWinScreen(false);
+        loseScreen.ShowLoseScreen(false);
     }
 
-    void ExitGame() {
+    public void RestartGame() {
+        InitializeGame();
+    }
+
+    public void ExitGame() {
         Application.Quit();
+    }
+
+    void CheckForWin() {
+        if (Money >= winMoney) {
+            Debug.Log("Game Over: You Win!");
+            winScreen.ShowWinScreen(true);
+        }
+    }
+
+    void CheckForLoss() {
+        if (MentalHealth <= 0) {
+            Debug.Log("Game Over: You Lose");
+            loseScreen.ShowLoseScreen(true);
+        }
     }
 }

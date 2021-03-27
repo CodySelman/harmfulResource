@@ -8,7 +8,6 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenu;
 
     void Start() {
-        // pauseMenu = GameObject.FindGameObjectWithTag(Constants.TAG_PAUSE_MENU);
         pauseMenu.SetActive(false);
     }
 

@@ -30,6 +30,13 @@ public class SupplyCardManager : MonoBehaviour
     }
 
     void Start() {
+        // GameController handles initialization
+    }
+
+    public void Initialize() {
+        deck = CardUtility.Shuffle(GameController.instance.testDeck);
+        discardPile = new List<Card>();
+        hand = new List<Card>();
         cardManager = new CardManager(deck, discardPile, hand, startingHandSize);
         cardManager.DrawHand();
         UpdateHandDisplay();
@@ -44,6 +51,8 @@ public class SupplyCardManager : MonoBehaviour
         ) {
             // TODO ui feedback for can't afford
             Debug.Log("can't afford card");
+            Debug.Log("card cost: $" + card.costMoney + " H" + card.costHealth);
+            Debug.Log("You have: $" + GameController.instance.Money + " H" + GameController.instance.MentalHealth);
             return;
         }
         GameController.instance.Money = GameController.instance.Money - card.costMoney;
@@ -60,7 +69,7 @@ public class SupplyCardManager : MonoBehaviour
     }
 
     // TODO consolidate with PlayerCardManager method 
-    void UpdateHandDisplay() {
+    public void UpdateHandDisplay() {
         // remove old hand render
         foreach (GameObject pos in supplyCardPositions) {
             foreach (Transform child in pos.transform) {

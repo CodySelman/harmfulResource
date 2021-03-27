@@ -5,6 +5,10 @@ using UnityEngine;
 public enum CardEffects {
     DrawCard,
     DiscardCard,
+    GainMoney,
+    LoseMoney,
+    GainHealth,
+    LoseHealth
 }
 
 [System.Serializable]

@@ -8,6 +8,8 @@ TagManager:
   - PauseMenu
   - SupplyCardManager
   - EventCardManager
+  - WinScreen
+  - LoseScreen
   layers:
   - Default
   - TransparentFX

@@ -7119,6 +7119,9 @@ MonoBehaviour:
   - {fileID: 107321416}
   - {fileID: 1263319571}
   - {fileID: 911672242}
+  handCardParent: {fileID: 2033612848}
+  handMinXPos: 0
+  handMaxXPos: 0
 --- !u!4 &1354512261
 Transform:
   m_ObjectHideFlags: 0

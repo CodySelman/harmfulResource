@@ -26,9 +26,15 @@ public class PlayerCardManager : MonoBehaviour
     [SerializeField]
     private GameObject handCardParent;
     [SerializeField]
+    private float handYPos = -3;
+    [SerializeField]
     private int handMinXPos = -5;
     [SerializeField]
     private int handMaxXPos = 5;
+    [SerializeField]
+    private int cardWidth = 2;
+    [SerializeField]
+    private float handCardMargin = 0.25f;
 
     void Awake() {
         // singleton setup
@@ -68,22 +74,30 @@ public class PlayerCardManager : MonoBehaviour
     // TODO consolidate with SupplyCardManager method?
     void UpdateHandDisplay() {
         // remove old hand render
-        foreach (GameObject pos in handCardPositions) {
-            foreach (Transform child in pos.transform) {
-                GameObject.Destroy(child.gameObject);
-            }
-        }
-        // render cards in hand
-        for (int i = 0; i < hand.Count; i++) {
-            // if (i >=6) break;
-            // determine card positions based on number of cards
-            GameObject handCard = Object.Instantiate(playerCard);
-            handCard.GetComponent<CardBase>().card = hand[i];
-            handCard.transform.parent = handCardPositions[i].transform;
-            handCard.transform.localPosition = Vector3.zero;
+        foreach (Transform handCard in handCardParent.transform) {
+            GameObject.Destroy(handCard.gameObject);
         }
 
-        
+        // render cards in hand
+        for (int i = 0; i < hand.Count; i++) {
+            // instantiate card with correct card object
+            GameObject handCard = Object.Instantiate(playerCard);
+            handCard.GetComponent<CardBase>().card = hand[i];
+            handCard.transform.parent = handCardParent.transform;
+
+            // set card positions
+            float xOffset = 0;
+            float xCardAndMarginWidth = cardWidth + handCardMargin;
+            // even number of cards in hand
+            if (hand.Count % 2 == 0) {
+                xOffset = (hand.Count - 1) * xCardAndMarginWidth / 2;
+            } else { // odd number of cards in hand
+                xOffset = Mathf.FloorToInt(hand.Count / 2) * xCardAndMarginWidth;
+            }
+            float xPos = (xCardAndMarginWidth * i) - xOffset;
+            Debug.Log("xPos: " + xPos);
+            handCard.transform.position = new Vector3(xPos, handYPos, -i);
+        }
     }
 
     public void UpdateAllDisplay() {

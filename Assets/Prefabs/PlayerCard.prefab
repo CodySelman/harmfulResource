@@ -73,7 +73,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.8911982, y: 4.137806}
+  m_Size: {x: 1.7215408, y: 2.5258622}
   m_EdgeRadius: 0
 --- !u!114 &8239751151858610020
 MonoBehaviour:
@@ -88,6 +88,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 11400000, guid: f4af7b59faec572488b2f17bd8be65cd, type: 2}
+  hoverEnterSpeed: 5
+  hoverExitSpeed: 10
+  hoverYPos: -3
 --- !u!1001 &5036794536347803838
 PrefabInstance:
   m_ObjectHideFlags: 0

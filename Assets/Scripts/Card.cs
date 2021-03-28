@@ -8,7 +8,8 @@ public enum CardEffects {
     GainMoney,
     LoseMoney,
     GainHealth,
-    LoseHealth
+    LoseHealth,
+    GainMoneyByWageHours,
 }
 
 [System.Serializable]

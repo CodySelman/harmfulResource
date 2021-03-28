@@ -21,8 +21,6 @@ public class PlayerCardManager : MonoBehaviour
     [HideInInspector]
     public CardManager cardManager;
 
-    // TODO delete me
-    public List<GameObject> handCardPositions;
     [SerializeField]
     private GameObject handCardParent;
     [SerializeField]
@@ -85,18 +83,25 @@ public class PlayerCardManager : MonoBehaviour
             handCard.GetComponent<CardBase>().card = hand[i];
             handCard.transform.parent = handCardParent.transform;
 
-            // set card positions
-            float xOffset = 0;
-            float xCardAndMarginWidth = cardWidth + handCardMargin;
-            // even number of cards in hand
-            if (hand.Count % 2 == 0) {
-                xOffset = (hand.Count - 1) * xCardAndMarginWidth / 2;
-            } else { // odd number of cards in hand
-                xOffset = Mathf.FloorToInt(hand.Count / 2) * xCardAndMarginWidth;
+            if (hand.Count <= 5) {
+                // set card positions
+                float xOffset = 0;
+                float xCardAndMarginWidth = cardWidth + handCardMargin;
+                // even number of cards in hand
+                if (hand.Count % 2 == 0) {
+                    xOffset = (hand.Count - 1) * xCardAndMarginWidth / 2;
+                } else { // odd number of cards in hand
+                    xOffset = Mathf.FloorToInt(hand.Count / 2) * xCardAndMarginWidth;
+                }
+                float xPos = (xCardAndMarginWidth * i) - xOffset;
+                handCard.transform.position = new Vector3(xPos, handYPos, -i);
+            } else {
+                // first card at minX, last at maxX, others distributed evenly between
+                float xOffset = (float)(handMaxXPos - handMinXPos) / (hand.Count - 1);
+                float xPos = handMinXPos + (i * xOffset);
+                handCard.transform.position = new Vector3(xPos, handYPos, -i);
             }
-            float xPos = (xCardAndMarginWidth * i) - xOffset;
-            Debug.Log("xPos: " + xPos);
-            handCard.transform.position = new Vector3(xPos, handYPos, -i);
+            
         }
     }
 
@@ -126,6 +131,9 @@ public class PlayerCardManager : MonoBehaviour
                     break;
                 case CardEffects.LoseHealth:
                     GameController.instance.MentalHealth -= cardEffect.amount;
+                    break;
+                case CardEffects.GainMoneyByWageHours:
+                    GameController.instance.Money += cardEffect.amount * GameController.instance.HourlyWage;
                     break;
                 default:
                     Debug.Log("PlayCard default hit for card: " + card.name);

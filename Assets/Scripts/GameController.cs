@@ -34,8 +34,8 @@ public class GameController : MonoBehaviour
     public TMP_Text turnText;
 
     // player stats
-    private int money = 0;
-    public int Money {
+    private float money = 0;
+    public float Money {
         get {
             return this.money;
         }
@@ -90,7 +90,7 @@ public class GameController : MonoBehaviour
 
     void Start() {
         playerCM = GameObject.FindGameObjectWithTag(Constants.TAG_PLAYER_CARD_MANAGER).GetComponent<PlayerCardManager>();
-        eventCM = GameObject.FindGameObjectWithTag(Constants.TAG_EVENT_CARD_MANAGER).GetComponent<EventCardManager>();
+        // eventCM = GameObject.FindGameObjectWithTag(Constants.TAG_EVENT_CARD_MANAGER).GetComponent<EventCardManager>();
         supplyCM = GameObject.FindGameObjectWithTag(Constants.TAG_SUPPLY_CARD_MANAGER).GetComponent<SupplyCardManager>();
         
         winScreen = GetComponent<WinScreen>();
@@ -104,7 +104,7 @@ public class GameController : MonoBehaviour
 
         playerCM.Initialize();
         // // TODO initialize method for event deck
-        eventCM.deck = CardUtility.Shuffle(testEvents);
+        // eventCM.deck = CardUtility.Shuffle(testEvents);
         supplyCM.Initialize();
 
         Money = startingMoney;

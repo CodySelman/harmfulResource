@@ -96,8 +96,6 @@ public class GameController : MonoBehaviour
         winScreen = GetComponent<WinScreen>();
         loseScreen = GetComponent<LoseScreen>();
 
-        AudioManager.instance.StartBgMusic();
-
         InitializeGame();
     }
 

@@ -56,8 +56,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private AudioClip sfxWin;
 
+    [SerializeField]
     private AudioSource musicFullSource;
+    [SerializeField]
     private AudioSource musicSpeakerSource;
+    [SerializeField]
     private AudioSource sfxAmbienceSource;
     private AudioSource sfxBadcard1Source;
     private AudioSource sfxBadcard2Source;
@@ -89,12 +92,12 @@ public class AudioManager : MonoBehaviour
     }
 
     void Start() {
-        musicFullSource = gameObject.AddComponent<AudioSource>();
-        musicFullSource.clip = musicFull;
-        musicSpeakerSource = gameObject.AddComponent<AudioSource>();
-        musicSpeakerSource.clip = musicSpeaker;
-        sfxAmbienceSource = gameObject.AddComponent<AudioSource>();
-        sfxAmbienceSource.clip = sfxAmbience;
+        // musicFullSource = gameObject.AddComponent<AudioSource>();
+        // musicFullSource.clip = musicFull;
+        // musicSpeakerSource = gameObject.AddComponent<AudioSource>();
+        // musicSpeakerSource.clip = musicSpeaker;
+        // sfxAmbienceSource = gameObject.AddComponent<AudioSource>();
+        // sfxAmbienceSource.clip = sfxAmbience;
         sfxBadcard1Source = gameObject.AddComponent<AudioSource>();
         sfxBadcard1Source.clip = sfxBadcard1;
         sfxBadcard2Source = gameObject.AddComponent<AudioSource>();
@@ -148,10 +151,6 @@ public class AudioManager : MonoBehaviour
             sfxTVNoiseSource,
             sfxWinSource,
         };
-
-        foreach (AudioSource source in musicSources) {
-            source.loop = true;
-        }
     }
 
     private float GetMusicVolume() {
@@ -186,8 +185,14 @@ public class AudioManager : MonoBehaviour
     }
 
     private void PlayWithRandomRange(AudioSource source) {
-        source.pitch = GetRandomPitch();
-        source.Play();
+        if (source != null) {
+            source.pitch = GetRandomPitch();
+            source.Play();
+        }
+    }
+
+    void PlayWithRandomRange() {
+        Debug.Log("PlayWithRandomRange called with no arg");
     }
 
     public void StartBgMusic() {

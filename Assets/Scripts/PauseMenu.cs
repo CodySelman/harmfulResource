@@ -22,7 +22,6 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void ShowPauseMenu(bool shouldShow) {
-        AudioManager.instance.OnPause();
         AudioManager.instance.OnPause(shouldShow);
         pauseMenu.SetActive(shouldShow);
     }

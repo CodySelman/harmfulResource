@@ -17,6 +17,7 @@ MonoBehaviour:
   costMoney: 25
   costHealth: 25
   description: discard 2 cards
+  isGoodCard: 0
   effects:
   - effect: 1
     amount: 2

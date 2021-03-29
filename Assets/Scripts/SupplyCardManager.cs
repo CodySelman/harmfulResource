@@ -67,7 +67,7 @@ public class SupplyCardManager : MonoBehaviour
         // if player can afford card
         if (
             card.costMoney > GameController.instance.Money ||
-            card.costHealth > GameController.instance.MentalHealth
+            card.costHealth >= GameController.instance.MentalHealth
         ) {
             // TODO ui feedback for can't afford
             Debug.Log("can't afford card");
@@ -75,6 +75,7 @@ public class SupplyCardManager : MonoBehaviour
             Debug.Log("You have: $" + GameController.instance.Money + " H" + GameController.instance.MentalHealth);
             return;
         }
+        AudioManager.instance.OnBuyCard();
         GameController.instance.Money = GameController.instance.Money - card.costMoney;
         GameController.instance.MentalHealth = GameController.instance.MentalHealth - card.costHealth;
         // remove card from supply hand
@@ -127,7 +128,6 @@ public class SupplyCardManager : MonoBehaviour
                 xOffset = Mathf.FloorToInt(hand.Count / 2) * xCardAndMarginWidth;
             }
             float xPos = (xCardAndMarginWidth * i) - xOffset;
-            Debug.Log("xPos: " + xPos);
             handCard.transform.position = new Vector3(xPos, handYPos, -i);
         }
     }

@@ -26,5 +26,6 @@ public class Card : ScriptableObject
     public int costMoney = 0;
     public int costHealth = 0;
     public string description;
+    public bool isGoodCard = true;
     public List<CardEffect> effects;
 }

@@ -14,6 +14,7 @@ public class TitleScreen : MonoBehaviour
         if (shouldShow) {
             titleScreen.SetActive(true);
         } else {
+            AudioManager.instance.OnClickButton();
             titleScreen.SetActive(false);
         }
     }

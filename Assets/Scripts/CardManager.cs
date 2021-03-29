@@ -62,7 +62,6 @@ public class CardManager
     ///Moves specified card from hand to discard
     ///</summary>
     public void DiscardCard(Card card) {
-        Debug.Log("Discard Card");
         if (hand.Contains(card)) {
             int index = hand.IndexOf(card);
             Card temp = hand[index];

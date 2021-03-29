@@ -17,6 +17,7 @@ MonoBehaviour:
   costMoney: 0
   costHealth: 0
   description: Lose 1000 Health and Lose the Game
+  isGoodCard: 0
   effects:
   - effect: 5
     amount: 1000

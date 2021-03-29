@@ -31,4 +31,8 @@ public class SupplyCard : CardBase
         //     Debug.Log(nameText + " right clicked");
         // }
     }
+
+    void OnMouseEnter() {
+        AudioManager.instance.OnCardHover();
+    }
 }

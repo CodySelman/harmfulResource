@@ -7,6 +7,7 @@ public class PlayerCard : CardBase
     // Card card on CardBase
     private bool isHover = false;
     private Vector3 origPos;
+
     [SerializeField]
     private float hoverEnterSpeed = 5.0f;
     [SerializeField]
@@ -44,6 +45,7 @@ public class PlayerCard : CardBase
     }
 
     void OnMouseEnter() {
+        AudioManager.instance.OnCardHover();
         isHover = true;
     }
 

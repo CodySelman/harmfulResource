@@ -112,6 +112,7 @@ public class PlayerCardManager : MonoBehaviour
     }
 
     public void PlayCard(Card card) {
+        AudioManager.instance.OnPlayCard(card.isGoodCard);
         foreach (CardEffect cardEffect in card.effects) {
             switch (cardEffect.effect) {
                 case CardEffects.DrawCard:
@@ -119,6 +120,7 @@ public class PlayerCardManager : MonoBehaviour
                     break;
                 case CardEffects.DiscardCard:
                     cardManager.DiscardCards(cardEffect.amount);
+                    AudioManager.instance.OnDiscard();
                     break;
                 case CardEffects.GainMoney:
                     GameController.instance.Money += cardEffect.amount;
@@ -136,7 +138,6 @@ public class PlayerCardManager : MonoBehaviour
                     GameController.instance.Money += cardEffect.amount * GameController.instance.HourlyWage;
                     break;
                 default:
-                    Debug.Log("PlayCard default hit for card: " + card.name);
                     break;
             }
         }
@@ -154,6 +155,4 @@ public class PlayerCardManager : MonoBehaviour
         cardManager.DrawHand();
         UpdateAllDisplay();
     }
-
-
 }

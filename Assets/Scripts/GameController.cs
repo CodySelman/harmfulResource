@@ -96,6 +96,8 @@ public class GameController : MonoBehaviour
         winScreen = GetComponent<WinScreen>();
         loseScreen = GetComponent<LoseScreen>();
 
+        AudioManager.instance.StartBgMusic();
+
         InitializeGame();
     }
 
@@ -127,20 +129,19 @@ public class GameController : MonoBehaviour
 
     void CheckForWin() {
         if (Money >= winMoney) {
-            Debug.Log("Game Over: You Win!");
+            AudioManager.instance.OnWinGame();
             winScreen.ShowWinScreen(true);
         }
     }
 
     void CheckForLoss() {
         if (MentalHealth <= 0) {
-            Debug.Log("Game Over: You Lose");
+            AudioManager.instance.OnLoseGame();
             loseScreen.ShowLoseScreen(true);
         }
     }
 
     public void StartTurn() {
-        Debug.Log("StartTurn");
         TurnCount += 1;
         playerCM.DrawHand();
         supplyCM.DrawSupply();
@@ -148,7 +149,7 @@ public class GameController : MonoBehaviour
     }
 
     public void EndTurn() {
-        Debug.Log("EndTurn");
+        AudioManager.instance.OnClickButton();
         playerCM.DiscardHand();
         supplyCM.DiscardHand();
         StartTurn();

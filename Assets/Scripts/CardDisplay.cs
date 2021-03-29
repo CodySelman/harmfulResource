@@ -17,8 +17,6 @@ public class CardDisplay : MonoBehaviour
             nameText.text = card.name;
             descriptionText.text = card.description;
             art.sprite = card.image;
-        } else {
-            Debug.Log("CardBase not found");
         }
     }
 }

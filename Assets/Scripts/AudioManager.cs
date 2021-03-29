@@ -4,8 +4,8 @@ using UnityEngine;
 
 [System.Serializable]
 public class PitchRange {
-    public float min = 0.9f;
-    public float max = 1.1f;
+    public float min = 0.96f;
+    public float max = 1.04f;
 }
 
 public class AudioManager : MonoBehaviour
@@ -22,39 +22,75 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private AudioClip musicFull;
     [SerializeField]
+    private float musicFullVolume = 1f;
+    [SerializeField]
     private AudioClip musicSpeaker;
+    [SerializeField]
+    private float musicSpeakerVolume = 1f;
     [SerializeField]
     private AudioClip sfxAmbience;
     [SerializeField]
+    private float sfxAmbienceVolume = 1f;
+    [SerializeField]
     private AudioClip sfxBadcard1;
+    [SerializeField]
+    private float sfxBadcard1Volume = 1f;
     [SerializeField]
     private AudioClip sfxBadcard2;
     [SerializeField]
+    private float sfxBadcard2Volume = 1f;
+    [SerializeField]
     private AudioClip sfxBuy;
+    [SerializeField]
+    private float sfxBuyVolume = 1f;
     [SerializeField]
     private AudioClip sfxDiscard;
     [SerializeField]
+    private float sfxDiscardVolume = 1f;
+    [SerializeField]
     private AudioClip sfxEnter;
+    [SerializeField]
+    private float sfxEnterVolume = 1f;
     [SerializeField]
     private AudioClip sfxGoodCard1;
     [SerializeField]
+    private float sfxGoodCard1Volume = 1f;
+    [SerializeField]
     private AudioClip sfxGoodCard2;
+    [SerializeField]
+    private float sfxGoodCard2Volume = 1f;
     [SerializeField]
     private AudioClip sfxLose;
     [SerializeField]
+    private float sfxLoseVolume = 1f;
+    [SerializeField]
     private AudioClip sfxMouseOver;
+    [SerializeField]
+    private float sfxMouseOverVolume = 1f;
     [SerializeField]
     private AudioClip sfxPause;
     [SerializeField]
+    private float sfxPauseVolume = 1f;
+    [SerializeField]
     private AudioClip sfxPickup1;
+    [SerializeField]
+    private float sfxPickup1Volume = 1f;
     [SerializeField]
     private AudioClip sfxPickup2;
     [SerializeField]
+    private float sfxPickup2Volume = 1f;
+    [SerializeField]
     private AudioClip sfxPickup3;
+    [SerializeField]
+    private float sfxPickup3Volume = 1f;
     [SerializeField]
     private AudioClip sfxTVNoise;
     [SerializeField]
+    private float sfxTVNoiseVolume = 1f;
+    [SerializeField]
     private AudioClip sfxWin;
+    [SerializeField]
+    private float sfxWinVolume = 1f;
 
     [SerializeField]
     private AudioSource musicFullSource;
@@ -151,7 +187,64 @@ public class AudioManager : MonoBehaviour
             sfxTVNoiseSource,
             sfxWinSource,
         };
+
+        SetVolumeMusic();
     }
+
+    // public void SetMusicFullVolume(float volume) {
+    //     musicFullVolume = volume;
+    // }
+    // public void SetMusicSpeakerVolume(float volume) {
+    //     musicSpeakerVolume = volume;
+    // }
+    // public void SetSfxAmbienceVolume(float volume) {
+    //     sfxAmbienceVolume = volume;
+    // }
+    // public void SetSfxBadcard1Volume(float volume) {
+    //     sfxBadcard1Volume = volume;
+    // }
+    // public void SetSfxBadcard2Volume(float volume) {
+    //     sfxBadcard2Volume = volume;
+    // }
+    // public void SetSfxBuyVolume(float volume) {
+    //     sfxBuyVolume = volume;
+    // }
+    // public void SetSfxDiscardVolume(float volume) {
+    //     sfxDiscardVolume = volume;
+    // }
+    // public void SetSfxEnterVolume(float volume) {
+    //     sfxEnterVolume = volume;
+    // }
+    // public void SetSfxGoodCard1Volume(float volume) {
+    //     sfxGoodCard1Volume = volume;
+    // }
+    // public void SetSfxGoodCard2Volume(float volume) {
+    //     sfxGoodCard2Volume = volume;
+    // }
+    // public void SetSfxLoseVolume(float volume) {
+    //     sfxLoseVolume = volume;
+    // }
+    // public void SetSfxMouseOverVolume(float volume) {
+    //     sfxMouseOverVolume = volume;
+    // }
+    // public void SetSfxPauseVolume(float volume) {
+    //     sfxPauseVolume = volume;
+    // }
+    // public void SetSfxPickup1Volume(float volume) {
+    //     sfxPickup1Volume = volume;
+    // }
+    // public void SetSfxPickup2Volume(float volume) {
+    //     sfxPickup2Volume = volume;
+    // }
+    // public void SetSfxPickup3Volume(float volume) {
+    //     sfxPickup3Volume = volume;
+    // }
+    // public void SetSfxTVNoiseVolume(float volume) {
+    //     sfxTVNoiseVolume = volume;
+    // }
+    // public void SetSfxWinVolume(float volume) {
+    //     sfxWinVolume = volume;
+    // }
 
     private float GetMusicVolume() {
         return volumeMaster * volumeMusic;
@@ -163,21 +256,28 @@ public class AudioManager : MonoBehaviour
 
     public void SetVolumeMusic() {
         float volume = GetMusicVolume();
-        foreach (AudioSource source in musicSources) {
-            source.volume = volume;
+        
+        if (GameController.instance.isPaused) {
+            musicFullSource.volume = volume * musicFullVolume;
+            musicSpeakerSource.volume = 0;
+            sfxAmbienceSource.volume = 0;
+        } else {
+            musicFullSource.volume = 0;
+            musicSpeakerSource.volume = volume * musicSpeakerVolume;
+            sfxAmbienceSource.volume = volume * sfxAmbienceVolume;
         }
     }
 
-    public void SetVolumeSfx() {
-        float volume = GetSfxVolume();
-        foreach (AudioSource source in sfxSources) {
-            source.volume = volume;
-        }
-    }
+    // public void SetVolumeSfx() {
+    //     float volume = GetSfxVolume();
+    //     foreach (AudioSource source in sfxSources) {
+    //         source.volume = volume;
+    //     }
+    // }
 
     public void SetVolumeAll() {
         SetVolumeMusic();
-        SetVolumeSfx();
+        // SetVolumeSfx();
     }
 
     public void OnMasterVolumeChange(float value) {
@@ -192,16 +292,17 @@ public class AudioManager : MonoBehaviour
 
     public void OnSfxVolumeChange(float value) {
         volumeSfx = value;
-        SetVolumeSfx();
+        // SetVolumeSfx();
     }
 
     private float GetRandomPitch() {
         return Random.Range(sfxPitchRange.min, sfxPitchRange.max);
     }
 
-    private void PlayWithRandomRange(AudioSource source) {
+    private void PlayWithRandomRange(AudioSource source, float volume) {
         if (source != null) {
             source.pitch = GetRandomPitch();
+            source.volume = volume;
             source.Play();
         }
     }
@@ -215,25 +316,24 @@ public class AudioManager : MonoBehaviour
         musicFullSource.Play();
         musicFullSource.volume = 0;
         musicSpeakerSource.Play();
-        musicSpeakerSource.volume = musicVolume;
+        musicSpeakerSource.volume = musicVolume * musicSpeakerVolume;
         sfxAmbienceSource.Play();
-        sfxAmbienceSource.volume = musicVolume;
+        sfxAmbienceSource.volume = musicVolume * sfxAmbienceVolume;
     }
 
     public void OnPause(bool isPaused = true) {
         float volume = GetMusicVolume();
 
-        sfxPauseSource.Play();
-
         // TODO coroutine to gradually do this over 0.5s rather than immediately
         if (isPaused) {
-            musicFullSource.volume = volume;
+            sfxPauseSource.Play();
+            musicFullSource.volume = volume * musicFullVolume;
             musicSpeakerSource.volume = 0;
             sfxAmbienceSource.volume = 0;
         } else {
             musicFullSource.volume = 0;
-            musicSpeakerSource.volume = volume;
-            sfxAmbienceSource.volume = volume;
+            musicSpeakerSource.volume = volume * musicSpeakerVolume;
+            sfxAmbienceSource.volume = volume * sfxAmbienceVolume;
         }
     }
 
@@ -242,57 +342,59 @@ public class AudioManager : MonoBehaviour
         
         if (isGood) {
             if (playSound1) {
-                PlayWithRandomRange(sfxGoodCard1Source);
+                PlayWithRandomRange(sfxGoodCard1Source, sfxGoodCard1Volume);
             } else {
-                PlayWithRandomRange(sfxGoodCard2Source);
+                PlayWithRandomRange(sfxGoodCard2Source, sfxGoodCard2Volume);
             }
         } else {
             if (playSound1) {
-                PlayWithRandomRange(sfxBadcard1Source);
+                PlayWithRandomRange(sfxBadcard1Source, sfxBadcard1Volume);
             } else {
-                PlayWithRandomRange(sfxBadcard2Source);
+                PlayWithRandomRange(sfxBadcard2Source, sfxBadcard2Volume);
             }
         }
     }
 
     public void OnClickButton() {
-        PlayWithRandomRange(sfxEnterSource);
+        PlayWithRandomRange(sfxEnterSource, sfxEnterVolume);
     }
 
     public void OnBuyCard() {
-        PlayWithRandomRange(sfxBuySource);
+        PlayWithRandomRange(sfxBuySource, sfxBuyVolume);
     }
 
     public void OnDiscard() {
-        PlayWithRandomRange(sfxDiscardSource);
+        PlayWithRandomRange(sfxDiscardSource, sfxDiscardVolume);
     }
 
     public void OnWinGame() {
+        sfxWinSource.volume = sfxWinVolume;
         sfxWinSource.Play();
     }
 
     public void OnLoseGame() {
+        sfxLoseSource.volume = sfxLoseVolume;
         sfxLoseSource.Play();
     }
 
     public void OnCardHover() {
-        PlayWithRandomRange(sfxMouseOverSource);
+        PlayWithRandomRange(sfxMouseOverSource, sfxMouseOverVolume);
     }
 
     // public void OnGainCard() {
     //     int ran = Random.Range(0, 3);
     //     switch(ran) {
     //         case 0:
-    //             PlayWithRandomRange(sfxPickup1Source);
+    //             PlayWithRandomRange(sfxPickup1Source, sfxPickup1Volume);
     //             break;
     //         case 1:
-    //             PlayWithRandomRange(sfxPickup2Source);
+    //             PlayWithRandomRange(sfxPickup2Source, sfxPickup2Volume);
     //             break;
     //         case 2:
-    //             PlayWithRandomRange(sfxPickup3Source);
+    //             PlayWithRandomRange(sfxPickup3Source, sfxPickup3Volume);
     //             break;
     //         default:
-    //             PlayWithRandomRange(sfxPickup1Source);
+    //             PlayWithRandomRange(sfxPickup1Source, sfxPickup1Volume);
     //             break;
     //     }
     // }

@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour
     // singleton instance
     public static GameController instance = null;
 
+    public bool isPaused = false;
+
     private PlayerCardManager playerCM;
     private EventCardManager eventCM;
     private SupplyCardManager supplyCM;

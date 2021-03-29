@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae87141931c4ad48917a50e907377af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPaused: 0
   startingMoney: 100
   startingHealth: 100
   startingWage: 7.5
@@ -155,26 +156,44 @@ MonoBehaviour:
   volumeMusic: 1
   volumeSfx: 1
   sfxPitchRange:
-    min: 0.9
-    max: 1.1
+    min: 0.96
+    max: 1.04
   musicFull: {fileID: 8300000, guid: e101c715d9cddc3468b846dfe250405b, type: 3}
+  musicFullVolume: 0.8
   musicSpeaker: {fileID: 8300000, guid: 41aeedf07fd201247bd54a6730fae771, type: 3}
+  musicSpeakerVolume: 1
   sfxAmbience: {fileID: 8300000, guid: 6a4a5a610f7753d46ac5bc8194df3b73, type: 3}
+  sfxAmbienceVolume: 0.5
   sfxBadcard1: {fileID: 8300000, guid: c834d1bb0b5d7db4b9f0d98e7d456b6e, type: 3}
+  sfxBadcard1Volume: 0.8
   sfxBadcard2: {fileID: 8300000, guid: 0af273c727c3f8040a5ffe18ee0819a7, type: 3}
+  sfxBadcard2Volume: 0.8
   sfxBuy: {fileID: 8300000, guid: bca38708b5bc10a418de107519c4eb14, type: 3}
+  sfxBuyVolume: 0.8
   sfxDiscard: {fileID: 8300000, guid: 80f7824ffebef7b4f9eab222caed4f9b, type: 3}
+  sfxDiscardVolume: 0.8
   sfxEnter: {fileID: 8300000, guid: 76ea9046b67a0264d9a2f9ade79f6c72, type: 3}
+  sfxEnterVolume: 0.9
   sfxGoodCard1: {fileID: 8300000, guid: 79e7feb88a1521e49957248d8e60eb83, type: 3}
+  sfxGoodCard1Volume: 0.8
   sfxGoodCard2: {fileID: 8300000, guid: 6a74346d0689b564e8e37ced8207b205, type: 3}
+  sfxGoodCard2Volume: 0.8
   sfxLose: {fileID: 8300000, guid: 604153628897a1443b8b39bd6b2d14c5, type: 3}
+  sfxLoseVolume: 0.8
   sfxMouseOver: {fileID: 8300000, guid: 804eca2424c80134694014514af747d3, type: 3}
+  sfxMouseOverVolume: 0.8
   sfxPause: {fileID: 8300000, guid: 5d36baa51d95f644cb7f24d3e08d777b, type: 3}
+  sfxPauseVolume: 0.8
   sfxPickup1: {fileID: 8300000, guid: 1db83c16b8536904da0b3eb21b06df45, type: 3}
+  sfxPickup1Volume: 0.8
   sfxPickup2: {fileID: 8300000, guid: b3d53f9a14a341b4b93dbf967c97de1e, type: 3}
+  sfxPickup2Volume: 0.8
   sfxPickup3: {fileID: 8300000, guid: b866a16412bfffc44b96aac960591e1b, type: 3}
+  sfxPickup3Volume: 0.8
   sfxTVNoise: {fileID: 8300000, guid: 4602d6f1fa76f3a4d92de0c940e0215d, type: 3}
+  sfxTVNoiseVolume: 0.8
   sfxWin: {fileID: 8300000, guid: d5b3bf6078a107e469f1a0fab62ee26e, type: 3}
+  sfxWinVolume: 1
   musicFullSource: {fileID: 1450931577985255784}
   musicSpeakerSource: {fileID: 1450931577985255782}
   sfxAmbienceSource: {fileID: 1450931577985255783}
@@ -190,7 +209,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e101c715d9cddc3468b846dfe250405b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0

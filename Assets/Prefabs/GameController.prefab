@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1775847082}
   - component: {fileID: 1775847083}
   - component: {fileID: 1775847084}
-  - component: {fileID: 1775847087}
   - component: {fileID: 1079480319299989942}
   - component: {fileID: 1450931577985255784}
   - component: {fileID: 1450931577985255782}
@@ -127,19 +126,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winScreen: {fileID: 0}
---- !u!114 &1775847087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1450931577796782254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4d7b0898b3e6cd4f9ee64ab9adb046c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  titleScreen: {fileID: 0}
 --- !u!114 &1079480319299989942
 MonoBehaviour:
   m_ObjectHideFlags: 0

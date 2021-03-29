@@ -5,6 +5,9 @@ using TMPro;
 
 public class SupplyCard : CardBase
 {
+    private bool isHover = false;
+    private Vector3 origPos;
+
     public TMP_Text costMoney;
     public TMP_Text costHealth;
 
@@ -19,20 +22,46 @@ public class SupplyCard : CardBase
         } else {
             costHealth.text = "";
         }
+
+        origPos = transform.position;
+    }
+
+    void Update() {
+        if (!GameController.instance.isPaused) {
+            // animation would be better here but this is fine now
+            if (isHover) {
+                // lerp towards hover position and scale
+                Vector3 newPos = new Vector3(transform.position.x, transform.position.y, -50);
+                transform.position = newPos;
+                transform.localScale = new Vector3(1.5f, 1.5f, 1);
+            } else if (transform.position != origPos) {
+                transform.position = origPos;
+                transform.localScale = Vector3.one;
+            }
+        }
     }
 
     void OnMouseOver() {
-        if (Input.GetMouseButtonDown(0)) {
-            SupplyCardManager.instance.BuyCard(card);
-        }
+        if (!GameController.instance.isPaused) {
+            if (Input.GetMouseButtonDown(0)) {
+                SupplyCardManager.instance.BuyCard(card);
+            }
 
-        // TODO card zoom
-        // if (Input.GetMouseButtonDown(1)) {
-        //     Debug.Log(nameText + " right clicked");
-        // }
+            // TODO card zoom
+            // if (Input.GetMouseButtonDown(1)) {
+            //     Debug.Log(nameText + " right clicked");
+            // }
+        }
     }
 
     void OnMouseEnter() {
-        AudioManager.instance.OnCardHover();
+        if (!GameController.instance.isPaused) {
+            AudioManager.instance.OnCardHover();
+            isHover = true;
+        }
+    }
+
+    void OnMouseExit() {
+        isHover = false;
     }
 }

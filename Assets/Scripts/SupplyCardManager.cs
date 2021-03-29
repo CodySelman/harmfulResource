@@ -70,9 +70,9 @@ public class SupplyCardManager : MonoBehaviour
             card.costHealth >= GameController.instance.MentalHealth
         ) {
             // TODO ui feedback for can't afford
-            Debug.Log("can't afford card");
-            Debug.Log("card cost: $" + card.costMoney + " H" + card.costHealth);
-            Debug.Log("You have: $" + GameController.instance.Money + " H" + GameController.instance.MentalHealth);
+            // Debug.Log("can't afford card");
+            // Debug.Log("card cost: $" + card.costMoney + " H" + card.costHealth);
+            // Debug.Log("You have: $" + GameController.instance.Money + " H" + GameController.instance.MentalHealth);
             return;
         }
         AudioManager.instance.OnBuyCard();

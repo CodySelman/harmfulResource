@@ -259,21 +259,21 @@ public class AudioManager : MonoBehaviour
         PlayWithRandomRange(sfxMouseOverSource);
     }
 
-    public void OnGainCard() {
-        int ran = Random.Range(0, 3);
-        switch(ran) {
-            case 0:
-                PlayWithRandomRange(sfxPickup1Source);
-                break;
-            case 1:
-                PlayWithRandomRange(sfxPickup2Source);
-                break;
-            case 2:
-                PlayWithRandomRange(sfxPickup2Source);
-                break;
-            default:
-                PlayWithRandomRange(sfxPickup1Source);
-                break;
-        }
-    }
+    // public void OnGainCard() {
+    //     int ran = Random.Range(0, 3);
+    //     switch(ran) {
+    //         case 0:
+    //             PlayWithRandomRange(sfxPickup1Source);
+    //             break;
+    //         case 1:
+    //             PlayWithRandomRange(sfxPickup2Source);
+    //             break;
+    //         case 2:
+    //             PlayWithRandomRange(sfxPickup3Source);
+    //             break;
+    //         default:
+    //             PlayWithRandomRange(sfxPickup1Source);
+    //             break;
+    //     }
+    // }
 }

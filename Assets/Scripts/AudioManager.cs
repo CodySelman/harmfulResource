@@ -180,6 +180,21 @@ public class AudioManager : MonoBehaviour
         SetVolumeSfx();
     }
 
+    public void OnMasterVolumeChange(float value) {
+        volumeMaster = value;
+        SetVolumeAll();
+    }
+
+    public void OnMusicVolumeChange(float value) {
+        volumeMusic = value;
+        SetVolumeMusic();
+    }
+
+    public void OnSfxVolumeChange(float value) {
+        volumeSfx = value;
+        SetVolumeSfx();
+    }
+
     private float GetRandomPitch() {
         return Random.Range(sfxPitchRange.min, sfxPitchRange.max);
     }

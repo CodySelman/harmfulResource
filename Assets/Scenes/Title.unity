@@ -1471,7 +1471,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 76ea9046b67a0264d9a2f9ade79f6c72, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1568,7 +1568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38611eac4fdacae4c99e65977408db0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxEnterSource: {fileID: 0}
+  sfxEnterSource: {fileID: 1967029526}
 --- !u!1 &2134044359
 GameObject:
   m_ObjectHideFlags: 0

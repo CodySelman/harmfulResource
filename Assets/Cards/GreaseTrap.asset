@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5b0d92430474947ac2f611101aa521, type: 3}
   m_Name: GreaseTrap
   m_EditorClassIdentifier: 
-  name: Grease Trapped
+  name: Grease Trap
   image: {fileID: 21300000, guid: 123707f5dc921f743979a0601543bb16, type: 3}
   costMoney: 0
   costHealth: 0

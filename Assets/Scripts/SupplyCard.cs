@@ -27,7 +27,7 @@ public class SupplyCard : CardBase
     }
 
     void Update() {
-        if (!GameController.instance.isPaused) {
+        if (!GameController.instance.CheckForBusy()) {
             // animation would be better here but this is fine now
             if (isHover) {
                 // lerp towards hover position and scale
@@ -42,7 +42,7 @@ public class SupplyCard : CardBase
     }
 
     void OnMouseOver() {
-        if (!GameController.instance.isPaused) {
+        if (!GameController.instance.CheckForBusy()) {
             if (Input.GetMouseButtonDown(0)) {
                 SupplyCardManager.instance.BuyCard(card);
             }
@@ -55,7 +55,7 @@ public class SupplyCard : CardBase
     }
 
     void OnMouseEnter() {
-        if (!GameController.instance.isPaused) {
+        if (!GameController.instance.CheckForBusy()) {
             AudioManager.instance.OnCardHover();
             isHover = true;
         }

@@ -34,6 +34,10 @@ public class PlayerCardManager : MonoBehaviour
     [SerializeField]
     private float handCardMargin = 0.25f;
 
+    public GameObject cardBackObj;
+    public GameObject deckObj;
+    public GameObject discardObj;
+
     void Awake() {
         // singleton setup
         if (instance == null) {
@@ -113,37 +117,117 @@ public class PlayerCardManager : MonoBehaviour
 
     public void PlayCard(Card card) {
         AudioManager.instance.OnPlayCard(card.isGoodCard);
+        IEnumerator coroutine = ResolveCardEffects(card);
+        Debug.Log("coroutine started");
+        StartCoroutine(coroutine);
+        Debug.Log("past coroutined");
+        // UpdateAllDisplay();
+    }
+
+    IEnumerator ResolveCardEffects(Card card) {
         foreach (CardEffect cardEffect in card.effects) {
             switch (cardEffect.effect) {
                 case CardEffects.DrawCard:
                     cardManager.DrawCards(cardEffect.amount);
+                    yield return StartCoroutine("DrawCardsAnim");
+                    UpdateAllDisplay();
                     break;
                 case CardEffects.DiscardCard:
-                    cardManager.DiscardCards(cardEffect.amount);
-                    AudioManager.instance.OnDiscard();
+                    if (hand.Count > 1) {
+                        AudioManager.instance.OnDiscard();
+                        cardManager.DiscardCards(cardEffect.amount);
+                        yield return StartCoroutine("DiscardCardsAnim");
+                        UpdateAllDisplay();
+                    }
                     break;
                 case CardEffects.GainMoney:
                     GameController.instance.Money += cardEffect.amount;
+                    yield return null;
                     break;
                 case CardEffects.LoseMoney:
                     GameController.instance.Money -= cardEffect.amount;
+                    yield return null;
                     break;
                 case CardEffects.GainHealth:
                     GameController.instance.MentalHealth += cardEffect.amount;
+                    yield return null;
                     break;
                 case CardEffects.LoseHealth:
                     GameController.instance.MentalHealth -= cardEffect.amount;
+                    yield return null;
                     break;
                 case CardEffects.GainMoneyByWageHours:
                     GameController.instance.Money += cardEffect.amount * GameController.instance.HourlyWage;
+                    yield return null;
                     break;
                 default:
+                    yield return null;
                     break;
             }
         }
         cardManager.DiscardCard(card);
         UpdateAllDisplay();
+        Debug.Log("end of resolve");
+        yield return null;
     }
+
+    IEnumerator DrawCardsAnim() {
+        GameObject card = GameObject.Instantiate(cardBackObj, deckObj.transform);
+        bool arrived = false;
+        Vector3 targetPos = new Vector3(-4, card.transform.position.y, card.transform.position.z);
+        while (!arrived) {
+            card.transform.position = Vector3.MoveTowards(card.transform.position, targetPos, 7 * Time.deltaTime);
+            if (Vector3.Distance(card.transform.position, targetPos) <= 0.1f) {
+                arrived = true;
+                GameObject.Destroy(card);
+            }
+            yield return null;
+        }
+    }
+
+    IEnumerator DiscardCardsAnim() {
+        discardObj.transform.localScale = new Vector3(1.5f, 1.5f, 1);
+        bool arrived = false;
+        while (!arrived) {
+            discardObj.transform.localScale = Vector3.MoveTowards(discardObj.transform.localScale, Vector3.one, 1.5f * Time.deltaTime);
+            if (Vector3.Distance(discardObj.transform.localScale, Vector3.one) <= 0.1f) {
+                arrived = true;
+                discardObj.transform.localScale = Vector3.one;
+            }
+            yield return null;
+        }
+    }
+
+    // private void ResolveCardEffects(Card card) {
+    //     foreach (CardEffect cardEffect in card.effects) {
+    //         switch (cardEffect.effect) {
+    //             case CardEffects.DrawCard:
+    //                 cardManager.DrawCards(cardEffect.amount);
+    //                 break;
+    //             case CardEffects.DiscardCard:
+    //                 cardManager.DiscardCards(cardEffect.amount);
+    //                 AudioManager.instance.OnDiscard();
+    //                 break;
+    //             case CardEffects.GainMoney:
+    //                 GameController.instance.Money += cardEffect.amount;
+    //                 break;
+    //             case CardEffects.LoseMoney:
+    //                 GameController.instance.Money -= cardEffect.amount;
+    //                 break;
+    //             case CardEffects.GainHealth:
+    //                 GameController.instance.MentalHealth += cardEffect.amount;
+    //                 break;
+    //             case CardEffects.LoseHealth:
+    //                 GameController.instance.MentalHealth -= cardEffect.amount;
+    //                 break;
+    //             case CardEffects.GainMoneyByWageHours:
+    //                 GameController.instance.Money += cardEffect.amount * GameController.instance.HourlyWage;
+    //                 break;
+    //             default:
+    //                 break;
+    //         }
+    //     }
+    // }
 
     public void DiscardHand() {
         cardManager.DiscardHand();

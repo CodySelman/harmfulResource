@@ -5317,7 +5317,7 @@ MonoBehaviour:
   discardPile: []
   hand: []
   handCardParent: {fileID: 1132203579}
-  handYPos: 3
+  handYPos: 2
   handMinXPos: -5
   handMaxXPos: 5
   cardWidth: 2
@@ -5993,7 +5993,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1126935645}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.28, y: 3.12, z: 0}
+  m_LocalPosition: {x: -7.28, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 635924487}
@@ -6885,6 +6885,9 @@ MonoBehaviour:
   handMaxXPos: 5
   cardWidth: 2
   handCardMargin: 0.25
+  cardBackObj: {fileID: 2664862980940792635, guid: cac92f75537f6c547940ce7bc75ebf9d, type: 3}
+  deckObj: {fileID: 1890376059}
+  discardObj: {fileID: 262568446}
 --- !u!4 &1354512261
 Transform:
   m_ObjectHideFlags: 0
@@ -9444,11 +9447,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 605533714641647134, guid: 8c61c8227bea7e64887844e3c4dcf7da, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -138
+      value: -178
       objectReference: {fileID: 0}
     - target: {fileID: 605533714641647134, guid: 8c61c8227bea7e64887844e3c4dcf7da, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -696
+      value: -693
       objectReference: {fileID: 0}
     - target: {fileID: 605533714641648096, guid: 8c61c8227bea7e64887844e3c4dcf7da, type: 3}
       propertyPath: m_Type

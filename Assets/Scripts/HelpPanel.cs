@@ -12,7 +12,9 @@ public class HelpPanel : MonoBehaviour
     }
 
     void OnMouseEnter() {
-        helpPanel.SetActive(true);
+        if (!GameController.instance.CheckForBusy()) {
+            helpPanel.SetActive(true);
+        }
     }
 
     void OnMouseExit() {

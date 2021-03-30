@@ -81,12 +81,21 @@ public class CardManager
         }
     }
 
+    public void DiscardRandomCard() {
+        if (hand.Count >= 1) {
+            int ran = Random.Range(0, hand.Count);
+            Card temp = hand[ran];
+            hand.RemoveAt(ran);
+            discardPile.Add(temp);
+        }
+    }
+
     ///<summary>
     ///Discards {num} cards from hand to discard
     ///</summary>
     public void DiscardCards(int num) {
         for (int i = 1; i <= num; i++) {
-            DiscardFirstCard();
+            DiscardRandomCard();
         }
     }
 

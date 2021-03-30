@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     public static GameController instance = null;
 
     public bool isPaused = false;
+    public bool isPlayingCard = false;
 
     private PlayerCardManager playerCM;
     private EventCardManager eventCM;
@@ -99,6 +100,10 @@ public class GameController : MonoBehaviour
         loseScreen = GetComponent<LoseScreen>();
 
         InitializeGame();
+    }
+
+    public bool CheckForBusy() {
+        return isPaused || isPlayingCard;
     }
 
     void InitializeGame() {

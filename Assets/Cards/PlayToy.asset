@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5b0d92430474947ac2f611101aa521, type: 3}
   m_Name: PlayToy
   m_EditorClassIdentifier: 
-  name: 
+  name: Play with an Oinky Meal Toy
   image: {fileID: 21300000, guid: 375f6c7e047b0bb4f8f10e2b37e03417, type: 3}
   costMoney: 0
   costHealth: 0
-  description: 
+  description: "A big perk of working at Oinky\u2019s is getting to pocket all of
+    the best toys. Sure, it might disappoint the five year old whose Oinky Meal you
+    stole it from, but this one was especially worth it."
   isGoodCard: 1
   effects: []

@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5b0d92430474947ac2f611101aa521, type: 3}
   m_Name: CaughtPhone
   m_EditorClassIdentifier: 
-  name: 
+  name: Caught in the Walk-In
   image: {fileID: 21300000, guid: ae22aec495f538d43845acf70a9d3c8e, type: 3}
   costMoney: 0
   costHealth: 0
-  description: 
+  description: "You got caught browsing FurNet on your phone in the walk-in freezer.
+    Now everyone at work thinks you\u2019re a furry, but you\u2019re really just
+    an admirer."
   isGoodCard: 1
   effects: []

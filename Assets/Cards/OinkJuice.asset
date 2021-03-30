@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5b0d92430474947ac2f611101aa521, type: 3}
   m_Name: OinkJuice
   m_EditorClassIdentifier: 
-  name: 
+  name: ' Drink the Oink Juice'
   image: {fileID: 21300000, guid: d0fb2a5bd030c9245be453c178686021, type: 3}
   costMoney: 0
   costHealth: 0
-  description: 
+  description: Is this what truly living tastes like? You just developed a new addiction.
+    Keep in mind that 47.8 cups of Oink Juice is a lethal dose.
   isGoodCard: 1
   effects: []

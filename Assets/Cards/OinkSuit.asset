@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: OinkSuit
   m_EditorClassIdentifier: 
   name: Wear The Oink Suit
-  image: {fileID: 21300000, guid: 1fd2c95ec6bf4314f934eec957bc553d, type: 3}
+  image: {fileID: 21300000, guid: e8e48f00e5be16040880af676471042c, type: 3}
   costMoney: 0
   costHealth: 20
-  description: Wear the Oink Suit
+  description: "The sweat stains of your forefathers still mark the iconic Oink Suit\u2019s
+    itchy pink fabric. Now you, too, can leave your scent."
+  isGoodCard: 1
   effects:
   - effect: 0
     amount: 0

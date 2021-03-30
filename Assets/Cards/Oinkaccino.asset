@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5b0d92430474947ac2f611101aa521, type: 3}
   m_Name: Oinkaccino
   m_EditorClassIdentifier: 
-  name: 
+  name: Oinkuccino
   image: {fileID: 21300000, guid: b2b7264066abcea42b7b9f1507bb1021, type: 3}
   costMoney: 0
   costHealth: 0
-  description: 
+  description: 'Mmmm! With more caffeine than 17 cups of coffee, an Oinkuccino is
+    just what you needed to make it through your shift. '
   isGoodCard: 1
   effects: []

@@ -43,7 +43,7 @@ public class GameController : MonoBehaviour
         }
         set {
             this.money = value;
-            moneyText.text = "Money: $" + this.money;
+            moneyText.text = this.money.ToString();
             CheckForWin();
         }
     }
@@ -55,7 +55,7 @@ public class GameController : MonoBehaviour
         set {
             // if it hits 0, game over
             this.mentalHealth = value;
-            healthText.text = "Health: " + this.mentalHealth;
+            healthText.text = this.mentalHealth.ToString() + "%";
             CheckForLoss();
         }
     }
@@ -66,7 +66,7 @@ public class GameController : MonoBehaviour
         }
         set {
             this.hourlyWage = value;
-            wageText.text = "Hourly Wage: $" + this.hourlyWage;
+            wageText.text = this.hourlyWage.ToString();
         }
     }
     private int turnCount = 1;

@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: WorkShift
   m_EditorClassIdentifier: 
   name: Work A Shift
-  image: {fileID: 21300000, guid: 1fd2c95ec6bf4314f934eec957bc553d, type: 3}
+  image: {fileID: 21300000, guid: b341f99809c5d104182bd9f2a0f515ce, type: 3}
   costMoney: 0
   costHealth: 0
   description: Work a Shift at Oinky's
+  isGoodCard: 1
   effects:
   - effect: 6
     amount: 1

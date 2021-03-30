@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a5b0d92430474947ac2f611101aa521, type: 3}
-  m_Name: OinkSuit
+  m_Name: Oinkmobile
   m_EditorClassIdentifier: 
-  name: Oink Suit
-  image: {fileID: 21300000, guid: e8e48f00e5be16040880af676471042c, type: 3}
-  costMoney: 100
+  name: Oinkmobile
+  image: {fileID: 21300000, guid: 175210adbc29c874eb3dc6a1097950f8, type: 3}
+  costMoney: 50
   costHealth: 0
-  description: "The sweat stains of your forefathers still mark the iconic Oink Suit\u2019s
-    itchy pink fabric. Now you, too, can leave your scent."
+  description: "It\u2019s okay that your license is suspended\u2014nobody else wants
+    to do it. At least you\u2019re not at work. Vroom vroom!"
   isGoodCard: 1
   effects:
   - effect: 0
-    amount: 5
+    amount: 3
+  - effect: 4
+    amount: 10
   - effect: 6
-    amount: 5
-  - effect: 8
     amount: 1

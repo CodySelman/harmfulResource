@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5b0d92430474947ac2f611101aa521, type: 3}
   m_Name: GreaseTrap
   m_EditorClassIdentifier: 
-  name: Fall in the Grease Trap
+  name: Grease Trapped
   image: {fileID: 21300000, guid: 123707f5dc921f743979a0601543bb16, type: 3}
   costMoney: 0
   costHealth: 0
   description: "Who would have thought that a grown adult could slip into a grease
     trap? Not you, apparently\u2014maybe next time you\u2019ll be more careful."
-  isGoodCard: 1
-  effects: []
+  isGoodCard: 0
+  effects:
+  - effect: 1
+    amount: 1
+  - effect: 6
+    amount: 1

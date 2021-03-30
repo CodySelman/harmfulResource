@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5b0d92430474947ac2f611101aa521, type: 3}
   m_Name: BathroomBreak
   m_EditorClassIdentifier: 
-  name: Take a Cry-Break
+  name: Cry-Break
   image: {fileID: 21300000, guid: 765b9c7880b62fb4e9c2c00d1fd7b878, type: 3}
   costMoney: 0
   costHealth: 0
@@ -20,4 +20,10 @@ MonoBehaviour:
     worry\u2014no one\u2019s going to come in when they can hear you crying from
     the dining area."
   isGoodCard: 1
-  effects: []
+  effects:
+  - effect: 7
+    amount: 1
+  - effect: 4
+    amount: 20
+  - effect: 0
+    amount: 1

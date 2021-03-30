@@ -12,11 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5b0d92430474947ac2f611101aa521, type: 3}
   m_Name: Toilet
   m_EditorClassIdentifier: 
-  name: Unclog the Toilet
+  name: Unclog Toilet
   image: {fileID: 21300000, guid: 7419ff8627db1b94bb1e003afd624006, type: 3}
   costMoney: 0
   costHealth: 0
   description: 'Someone tried to flush a bunch of OinkDogs down the toilet again.
     Try not to get any bathroom juice on your uniform. '
-  isGoodCard: 1
-  effects: []
+  isGoodCard: 0
+  effects:
+  - effect: 6
+    amount: 2
+  - effect: 5
+    amount: 1
+  - effect: 1
+    amount: 1

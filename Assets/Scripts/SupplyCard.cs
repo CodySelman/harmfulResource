@@ -12,16 +12,16 @@ public class SupplyCard : CardBase
     public TMP_Text costHealth;
 
     void Start() {
-        if (card.costMoney > 0) {
-            costMoney.text = "$" + card.costMoney.ToString();
-        } else {
-            costMoney.text = "";
-        }
-        if (card.costHealth > 0) {
-            costHealth.text = card.costHealth.ToString();
-        } else {
-            costHealth.text = "";
-        }
+        // if (card.costMoney > 0) {
+            costMoney.text = card.costMoney.ToString();
+        // } else {
+        //     costMoney.text = "";
+        // }
+        // if (card.costHealth > 0) {
+        //     costHealth.text = card.costHealth.ToString();
+        // } else {
+        //     costHealth.text = "";
+        // }
 
         origPos = transform.position;
     }

@@ -160,6 +160,18 @@ public class PlayerCardManager : MonoBehaviour
                     GameController.instance.Money += cardEffect.amount * GameController.instance.HourlyWage;
                     yield return null;
                     break;
+                case CardEffects.LoseMoneyByWageHours:
+                    GameController.instance.Money -= cardEffect.amount * GameController.instance.HourlyWage;
+                    yield return null;
+                    break;
+                case CardEffects.GainWage:
+                    GameController.instance.HourlyWage += cardEffect.amount;
+                    yield return null;
+                    break;
+                case CardEffects.LoseWage:
+                    GameController.instance.HourlyWage -= cardEffect.amount;
+                    yield return null;
+                    break;
                 default:
                     yield return null;
                     break;

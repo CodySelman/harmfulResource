@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private int startingHealth = 100;
     [SerializeField]
-    private float startingWage = 7.5f;
+    private float startingWage = 5f;
     [SerializeField]
     private float winMoney = 200;
 

@@ -45,7 +45,13 @@ public class SupplyCardManager : MonoBehaviour
     }
 
     public void Initialize() {
-        deck = CardUtility.Shuffle(GameController.instance.testDeck);
+        List<Card> temp = new List<Card>();
+        temp.AddRange(GameController.instance.testSupply);
+        temp.AddRange(GameController.instance.testSupply);
+        temp.AddRange(GameController.instance.testSupply);
+        temp.AddRange(GameController.instance.testSupply);
+        temp.AddRange(GameController.instance.testSupply);
+        deck = CardUtility.Shuffle(temp);
         discardPile = new List<Card>();
         hand = new List<Card>();
         cardManager = new CardManager(deck, discardPile, hand, startingHandSize);

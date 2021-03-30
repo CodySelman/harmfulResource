@@ -14,9 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Piglet Pen
   image: {fileID: 21300000, guid: 87753f31f31c4c54685940a4fe14b200, type: 3}
-  costMoney: 0
+  costMoney: 20
   costHealth: 0
   description: "No one will find you in the kids\u2019 play area. Get an extra fifteen-minute
     break in the Piglet Pen before your boss spots you. Worth the stickiness."
   isGoodCard: 1
-  effects: []
+  effects:
+  - effect: 6
+    amount: 1
+  - effect: 4
+    amount: 1

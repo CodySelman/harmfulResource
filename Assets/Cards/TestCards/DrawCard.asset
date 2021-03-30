@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: DrawCard
   m_EditorClassIdentifier: 
   name: Draw Card
-  image: {fileID: 21300000, guid: 1fd2c95ec6bf4314f934eec957bc553d, type: 3}
+  image: {fileID: 21300000, guid: 19894fcb3d8264645a9ddaef74befbdd, type: 3}
   costMoney: 25
   costHealth: 25
   description: draw 1 card
+  isGoodCard: 1
   effects:
   - effect: 0
     amount: 1

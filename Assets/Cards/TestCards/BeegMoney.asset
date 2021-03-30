@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: BeegMoney
   m_EditorClassIdentifier: 
   name: Beeg Money
-  image: {fileID: 21300000, guid: 1fd2c95ec6bf4314f934eec957bc553d, type: 3}
+  image: {fileID: 21300000, guid: b2b7264066abcea42b7b9f1507bb1021, type: 3}
   costMoney: 0
   costHealth: 0
   description: Get $200
+  isGoodCard: 1
   effects:
   - effect: 2
     amount: 200

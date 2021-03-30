@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: DrawDiscardCard
   m_EditorClassIdentifier: 
   name: Draw Then Discard
-  image: {fileID: 21300000, guid: 1fd2c95ec6bf4314f934eec957bc553d, type: 3}
+  image: {fileID: 21300000, guid: 575b8539b4bc3e24695c0710386c4765, type: 3}
   costMoney: 25
   costHealth: 25
   description: Draw 1 card then discard 1 card
+  isGoodCard: 1
   effects:
   - effect: 0
     amount: 1

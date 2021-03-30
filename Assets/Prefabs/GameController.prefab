@@ -145,11 +145,11 @@ MonoBehaviour:
     min: 0.96
     max: 1.04
   musicFull: {fileID: 8300000, guid: e101c715d9cddc3468b846dfe250405b, type: 3}
-  musicFullVolume: 0.8
+  musicFullVolume: 0.6
   musicSpeaker: {fileID: 8300000, guid: 41aeedf07fd201247bd54a6730fae771, type: 3}
   musicSpeakerVolume: 1
   sfxAmbience: {fileID: 8300000, guid: 6a4a5a610f7753d46ac5bc8194df3b73, type: 3}
-  sfxAmbienceVolume: 0.5
+  sfxAmbienceVolume: 0.35
   sfxBadcard1: {fileID: 8300000, guid: c834d1bb0b5d7db4b9f0d98e7d456b6e, type: 3}
   sfxBadcard1Volume: 0.8
   sfxBadcard2: {fileID: 8300000, guid: 0af273c727c3f8040a5ffe18ee0819a7, type: 3}
@@ -165,7 +165,7 @@ MonoBehaviour:
   sfxGoodCard2: {fileID: 8300000, guid: 6a74346d0689b564e8e37ced8207b205, type: 3}
   sfxGoodCard2Volume: 0.8
   sfxLose: {fileID: 8300000, guid: 604153628897a1443b8b39bd6b2d14c5, type: 3}
-  sfxLoseVolume: 0.8
+  sfxLoseVolume: 0.6
   sfxMouseOver: {fileID: 8300000, guid: 804eca2424c80134694014514af747d3, type: 3}
   sfxMouseOverVolume: 0.8
   sfxPause: {fileID: 8300000, guid: 5d36baa51d95f644cb7f24d3e08d777b, type: 3}

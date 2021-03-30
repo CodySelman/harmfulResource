@@ -307,9 +307,9 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    void PlayWithRandomRange() {
-        Debug.Log("PlayWithRandomRange called with no arg");
-    }
+    // void PlayWithRandomRange() {
+    //     Debug.Log("PlayWithRandomRange called with no arg");
+    // }
 
     public void StartBgMusic() {
         float musicVolume = GetMusicVolume();
@@ -356,7 +356,11 @@ public class AudioManager : MonoBehaviour
     }
 
     public void OnClickButton() {
-        PlayWithRandomRange(sfxEnterSource, sfxEnterVolume);
+        float ran = Random.Range(0.98f, 1.02f);
+        sfxEnterSource.pitch = ran;
+        sfxEnterSource.volume = sfxEnterVolume;
+        sfxEnterSource.Play();
+        // PlayWithRandomRange(sfxEnterSource, sfxEnterVolume);
     }
 
     public void OnBuyCard() {

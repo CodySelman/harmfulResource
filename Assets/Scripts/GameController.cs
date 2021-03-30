@@ -45,7 +45,7 @@ public class GameController : MonoBehaviour
         set {
             this.money = value;
             moneyText.text = this.money.ToString();
-            CheckForWin();
+            // CheckForWin();
         }
     }
     private int mentalHealth = 0;
@@ -140,14 +140,17 @@ public class GameController : MonoBehaviour
     }
 
     void CheckForLoss() {
-        if (MentalHealth <= 0) {
+        if (MentalHealth <= 0 || Money < 0) {
             AudioManager.instance.OnLoseGame();
             loseScreen.ShowLoseScreen(true);
         }
+        
     }
 
     public void StartTurn() {
         TurnCount += 1;
+        MentalHealth -= (TurnCount * 2);
+        HourlyWage += 1;
         playerCM.DrawHand();
         supplyCM.DrawSupply();
         // new event

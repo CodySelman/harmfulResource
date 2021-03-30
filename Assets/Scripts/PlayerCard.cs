@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerCard : CardBase
 {
@@ -24,8 +25,59 @@ public class PlayerCard : CardBase
     private bool isBeingPlayed = false;
     private bool hasPlayed = false;
 
+    public GameObject effectHealthGO;
+    public GameObject effectHealthSymbol;
+    public TMP_Text effectHealth;
+    public GameObject effectMoneyGO;
+    public TMP_Text effectMoney;
+    public GameObject effectWageGO;
+    public TMP_Text effectWage;
+    public GameObject effectCardGO;
+    public TMP_Text effectCard;
+
     void Start() {
         origPos = transform.position;
+
+        foreach (CardEffect effect in card.effects) {
+            if (effect.effect == CardEffects.GainHealth || effect.effect == CardEffects.LoseHealth) {
+                effectHealthGO.SetActive(true);
+                if (effect.effect == CardEffects.GainHealth) {
+                    effectHealth.text = "+" + effect.amount;
+                } else {
+                    effectHealth.text = "-" + effect.amount;
+                }
+            }
+        }
+        foreach (CardEffect effect in card.effects) {
+            if (effect.effect == CardEffects.GainMoney || effect.effect == CardEffects.LoseMoney) {
+                effectMoneyGO.SetActive(true);
+                if (effect.effect == CardEffects.GainMoney) {
+                    effectMoney.text = "+" + effect.amount;
+                } else {
+                    effectMoney.text = "-" + effect.amount;
+                }
+            }
+        }
+        foreach (CardEffect effect in card.effects) {
+            if (effect.effect == CardEffects.GainWage || effect.effect == CardEffects.LoseWage) {
+                effectWageGO.SetActive(true);
+                if (effect.effect == CardEffects.GainWage) {
+                    effectWage.text = "+" + effect.amount;
+                } else {
+                    effectWage.text = "-" + effect.amount;
+                }
+            }
+        }
+        foreach (CardEffect effect in card.effects) {
+            if (effect.effect == CardEffects.DrawCard || effect.effect == CardEffects.DiscardCard) {
+                effectCardGO.SetActive(true);
+                if (effect.effect == CardEffects.DrawCard) {
+                    effectCard.text = "+" + effect.amount;
+                } else {
+                    effectCard.text = "-" + effect.amount;
+                }
+            }
+        }
     }
 
     void Update() {

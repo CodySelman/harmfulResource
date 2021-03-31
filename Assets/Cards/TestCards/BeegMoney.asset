@@ -20,4 +20,4 @@ MonoBehaviour:
   isGoodCard: 1
   effects:
   - effect: 2
-    amount: 200
+    amount: 1000

@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private float startingWage = 5f;
     [SerializeField]
-    private float winMoney = 200;
+    private float winMoney = 1000;
 
     public List<Card> testDeck;
     public List<Card> testSupply;
@@ -45,7 +45,7 @@ public class GameController : MonoBehaviour
         set {
             this.money = value;
             moneyText.text = this.money.ToString();
-            // CheckForWin();
+            CheckForWin();
         }
     }
     private int mentalHealth = 0;
@@ -149,7 +149,7 @@ public class GameController : MonoBehaviour
 
     public void StartTurn() {
         TurnCount += 1;
-        MentalHealth -= (TurnCount * 2);
+        MentalHealth -= (TurnCount * 3);
         HourlyWage += 1;
         playerCM.DrawHand();
         supplyCM.DrawSupply();

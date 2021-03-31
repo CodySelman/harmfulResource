@@ -77,7 +77,7 @@ public class GameController : MonoBehaviour
         }
         set {
             this.turnCount = value;
-            turnText.text = "Turn: " + this.turnCount;
+            turnText.text = "Day " + this.turnCount;
         }
     }
 

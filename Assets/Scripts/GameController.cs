@@ -125,6 +125,7 @@ public class GameController : MonoBehaviour
     }
 
     public void RestartGame() {
+        isPaused = false;
         InitializeGame();
     }
 
@@ -136,6 +137,7 @@ public class GameController : MonoBehaviour
         if (Money >= winMoney) {
             AudioManager.instance.OnWinGame();
             winScreen.ShowWinScreen(true);
+            isPaused = true;
         }
     }
 
@@ -143,6 +145,7 @@ public class GameController : MonoBehaviour
         if (MentalHealth <= 0 || Money < 0) {
             AudioManager.instance.OnLoseGame();
             loseScreen.ShowLoseScreen(true);
+            isPaused = true;
         }
         
     }
@@ -157,9 +160,11 @@ public class GameController : MonoBehaviour
     }
 
     public void EndTurn() {
-        AudioManager.instance.OnClickButton();
-        playerCM.DiscardHand();
-        supplyCM.DiscardHand();
-        StartTurn();
+        if (!CheckForBusy()) {
+            AudioManager.instance.OnClickButton();
+            playerCM.DiscardHand();
+            supplyCM.DiscardHand();
+            StartTurn();
+        }
     }
 }

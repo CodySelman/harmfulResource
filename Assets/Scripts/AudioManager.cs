@@ -250,7 +250,7 @@ public class AudioManager : MonoBehaviour
         return volumeMaster * volumeMusic;
     }
 
-    private float GetSfxVolume() {
+    private float GetSfxMasterVolume() {
         return volumeMaster * volumeSfx;
     }
 
@@ -268,12 +268,6 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // public void SetVolumeSfx() {
-    //     float volume = GetSfxVolume();
-    //     foreach (AudioSource source in sfxSources) {
-    //         source.volume = volume;
-    //     }
-    // }
 
     public void SetVolumeAll() {
         SetVolumeMusic();
@@ -307,9 +301,9 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // void PlayWithRandomRange() {
-    //     Debug.Log("PlayWithRandomRange called with no arg");
-    // }
+    public float GetSfxVolume(float volume) {
+        return volume * GetSfxMasterVolume();
+    }
 
     public void StartBgMusic() {
         float musicVolume = GetMusicVolume();
@@ -321,12 +315,17 @@ public class AudioManager : MonoBehaviour
         sfxAmbienceSource.volume = musicVolume * sfxAmbienceVolume;
     }
 
+    private void PlayPauseSound() {
+        sfxPauseSource.volume = GetSfxVolume(sfxPauseVolume);
+        sfxPauseSource.Play();
+    }
+
     public void OnPause(bool isPaused = true) {
         float volume = GetMusicVolume();
 
         // TODO coroutine to gradually do this over 0.5s rather than immediately
         if (isPaused) {
-            sfxPauseSource.Play();
+            PlayPauseSound();
             musicFullSource.volume = volume * musicFullVolume;
             musicSpeakerSource.volume = 0;
             sfxAmbienceSource.volume = 0;
@@ -342,15 +341,15 @@ public class AudioManager : MonoBehaviour
         
         if (isGood) {
             if (playSound1) {
-                PlayWithRandomRange(sfxGoodCard1Source, sfxGoodCard1Volume);
+                PlayWithRandomRange(sfxGoodCard1Source, GetSfxVolume(sfxGoodCard1Volume));
             } else {
-                PlayWithRandomRange(sfxGoodCard2Source, sfxGoodCard2Volume);
+                PlayWithRandomRange(sfxGoodCard2Source, GetSfxVolume(sfxGoodCard2Volume));
             }
         } else {
             if (playSound1) {
-                PlayWithRandomRange(sfxBadcard1Source, sfxBadcard1Volume);
+                PlayWithRandomRange(sfxBadcard1Source, GetSfxVolume(sfxBadcard1Volume));
             } else {
-                PlayWithRandomRange(sfxBadcard2Source, sfxBadcard2Volume);
+                PlayWithRandomRange(sfxBadcard2Source, GetSfxVolume(sfxBadcard2Volume));
             }
         }
     }
@@ -358,48 +357,47 @@ public class AudioManager : MonoBehaviour
     public void OnClickButton() {
         float ran = Random.Range(0.98f, 1.02f);
         sfxEnterSource.pitch = ran;
-        sfxEnterSource.volume = sfxEnterVolume;
+        sfxEnterSource.volume = GetSfxVolume(sfxEnterVolume);
         sfxEnterSource.Play();
-        // PlayWithRandomRange(sfxEnterSource, sfxEnterVolume);
     }
 
     public void OnBuyCard() {
-        PlayWithRandomRange(sfxBuySource, sfxBuyVolume);
+        PlayWithRandomRange(sfxBuySource, GetSfxVolume(sfxBuyVolume));
     }
 
     public void OnDiscard() {
-        PlayWithRandomRange(sfxDiscardSource, sfxDiscardVolume);
+        PlayWithRandomRange(sfxDiscardSource, GetSfxVolume(sfxDiscardVolume));
     }
 
     public void OnWinGame() {
-        sfxWinSource.volume = sfxWinVolume;
+        sfxWinSource.volume = GetSfxVolume(sfxWinVolume);
         sfxWinSource.Play();
     }
 
     public void OnLoseGame() {
-        sfxLoseSource.volume = sfxLoseVolume;
+        sfxLoseSource.volume = GetSfxVolume(sfxLoseVolume);
         sfxLoseSource.Play();
     }
 
     public void OnCardHover() {
-        PlayWithRandomRange(sfxMouseOverSource, sfxMouseOverVolume);
+        PlayWithRandomRange(sfxMouseOverSource, GetSfxVolume(sfxMouseOverVolume));
     }
 
-    // public void OnGainCard() {
-    //     int ran = Random.Range(0, 3);
-    //     switch(ran) {
-    //         case 0:
-    //             PlayWithRandomRange(sfxPickup1Source, sfxPickup1Volume);
-    //             break;
-    //         case 1:
-    //             PlayWithRandomRange(sfxPickup2Source, sfxPickup2Volume);
-    //             break;
-    //         case 2:
-    //             PlayWithRandomRange(sfxPickup3Source, sfxPickup3Volume);
-    //             break;
-    //         default:
-    //             PlayWithRandomRange(sfxPickup1Source, sfxPickup1Volume);
-    //             break;
-    //     }
-    // }
+    public void OnGainCard() {
+        int ran = Random.Range(0, 3);
+        switch(ran) {
+            case 0:
+                PlayWithRandomRange(sfxPickup1Source, GetSfxVolume(sfxPickup1Volume));
+                break;
+            case 1:
+                PlayWithRandomRange(sfxPickup2Source, GetSfxVolume(sfxPickup2Volume));
+                break;
+            case 2:
+                PlayWithRandomRange(sfxPickup3Source, GetSfxVolume(sfxPickup3Volume));
+                break;
+            default:
+                PlayWithRandomRange(sfxPickup1Source, GetSfxVolume(sfxPickup1Volume));
+                break;
+        }
+    }
 }

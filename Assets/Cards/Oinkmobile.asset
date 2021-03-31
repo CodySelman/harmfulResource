@@ -21,8 +21,8 @@ MonoBehaviour:
   isGoodCard: 1
   effects:
   - effect: 0
-    amount: 3
+    amount: 2
   - effect: 4
     amount: 10
   - effect: 8
-    amount: 2
+    amount: 1

@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Oink Dogged
   image: {fileID: 21300000, guid: 575b8539b4bc3e24695c0710386c4765, type: 3}
-  costMoney: 0
+  costMoney: 35
   costHealth: 0
   description: "What were you thinking? You knew 11 was your limit\u2026 And at nine
     o\u2019clock in the morning? It\u2019s not going to be a good day."
   isGoodCard: 0
   effects:
-  - effect: 5
-    amount: 5
+  - effect: 4
+    amount: 10
   - effect: 0
-    amount: 2
+    amount: 1

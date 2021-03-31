@@ -20,7 +20,7 @@ MonoBehaviour:
     break in the Piglet Pen before your boss spots you. Worth the stickiness."
   isGoodCard: 1
   effects:
-  - effect: 6
+  - effect: 8
     amount: 1
   - effect: 4
     amount: 1

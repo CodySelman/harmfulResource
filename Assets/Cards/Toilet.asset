@@ -20,8 +20,8 @@ MonoBehaviour:
     Try not to get any bathroom juice on your uniform. '
   isGoodCard: 0
   effects:
-  - effect: 6
-    amount: 2
+  - effect: 8
+    amount: 1
   - effect: 5
     amount: 1
   - effect: 1

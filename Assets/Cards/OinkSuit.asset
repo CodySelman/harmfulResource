@@ -22,7 +22,7 @@ MonoBehaviour:
   effects:
   - effect: 0
     amount: 5
-  - effect: 6
+  - effect: 8
     amount: 5
   - effect: 8
     amount: 1

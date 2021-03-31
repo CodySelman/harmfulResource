@@ -22,5 +22,5 @@ MonoBehaviour:
   effects:
   - effect: 1
     amount: 1
-  - effect: 6
+  - effect: 8
     amount: 1

@@ -21,8 +21,8 @@ MonoBehaviour:
     the dining area."
   isGoodCard: 1
   effects:
-  - effect: 7
-    amount: 1
+  - effect: 9
+    amount: 2
   - effect: 4
     amount: 20
   - effect: 0

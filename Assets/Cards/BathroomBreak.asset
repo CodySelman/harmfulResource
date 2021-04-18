@@ -18,7 +18,7 @@ MonoBehaviour:
   costHealth: 0
   description: "The bathroom stall\u2019s lock doesn\u2019t work, but don\u2019t
     worry\u2014no one\u2019s going to come in when they can hear you crying from
-    the dining area."
+    the dining area. "
   isGoodCard: 1
   effects:
   - effect: 9

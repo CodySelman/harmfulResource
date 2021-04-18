@@ -3,7 +3,28 @@ guid: 9e9df42d0f8d79449bde7dc1d95cc5da
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - musicFull: {instanceID: 0}
+  - musicSpeaker: {instanceID: 0}
+  - sfxAmbience: {instanceID: 0}
+  - sfxBadcard1: {instanceID: 0}
+  - sfxBadcard2: {instanceID: 0}
+  - sfxBuy: {instanceID: 0}
+  - sfxDiscard: {instanceID: 0}
+  - sfxEnter: {instanceID: 0}
+  - sfxGoodCard1: {fileID: 8300000, guid: b866a16412bfffc44b96aac960591e1b, type: 3}
+  - sfxGoodCard2: {fileID: 8300000, guid: 6a74346d0689b564e8e37ced8207b205, type: 3}
+  - sfxLose: {instanceID: 0}
+  - sfxMouseOver: {instanceID: 0}
+  - sfxPause: {instanceID: 0}
+  - sfxPickup1: {instanceID: 0}
+  - sfxPickup2: {instanceID: 0}
+  - sfxPickup3: {instanceID: 0}
+  - sfxTVNoise: {instanceID: 0}
+  - sfxWin: {instanceID: 0}
+  - musicFullSource: {instanceID: 0}
+  - musicSpeakerSource: {instanceID: 0}
+  - sfxAmbienceSource: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

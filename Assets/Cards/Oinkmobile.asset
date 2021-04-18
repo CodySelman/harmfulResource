@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5b0d92430474947ac2f611101aa521, type: 3}
   m_Name: Oinkmobile
   m_EditorClassIdentifier: 
-  name: Oinkmobile
+  name: Oink Mobile
   image: {fileID: 21300000, guid: 175210adbc29c874eb3dc6a1097950f8, type: 3}
   costMoney: 50
   costHealth: 0
   description: "It\u2019s okay that your license is suspended\u2014nobody else wants
-    to do it. At least you\u2019re not at work. Vroom vroom!"
+    to drive it. At least you\u2019re not at work. Vroom vroom!"
   isGoodCard: 1
   effects:
   - effect: 0

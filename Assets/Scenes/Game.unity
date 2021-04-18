@@ -9411,6 +9411,18 @@ PrefabInstance:
       propertyPath: m_Text
       value: End Turn
       objectReference: {fileID: 0}
+    - target: {fileID: 605533715359676832, guid: 8c61c8227bea7e64887844e3c4dcf7da, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: d2f8e6bfe8124d84f8d242868b4d6c25, type: 3}
+    - target: {fileID: 605533715359676832, guid: 8c61c8227bea7e64887844e3c4dcf7da, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 605533715359676832, guid: 8c61c8227bea7e64887844e3c4dcf7da, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 605533715359676894, guid: 8c61c8227bea7e64887844e3c4dcf7da, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -9552,6 +9564,34 @@ PrefabInstance:
       propertyPath: winScreen
       value: 
       objectReference: {fileID: 312007162}
+    - target: {fileID: 1079480319299989942, guid: b1f1ac03d64bc8449baf31a90cb86bc0, type: 3}
+      propertyPath: sfxBadcard1
+      value: 
+      objectReference: {fileID: 8300000, guid: c834d1bb0b5d7db4b9f0d98e7d456b6e, type: 3}
+    - target: {fileID: 1079480319299989942, guid: b1f1ac03d64bc8449baf31a90cb86bc0, type: 3}
+      propertyPath: sfxBadcard2
+      value: 
+      objectReference: {fileID: 8300000, guid: 0af273c727c3f8040a5ffe18ee0819a7, type: 3}
+    - target: {fileID: 1079480319299989942, guid: b1f1ac03d64bc8449baf31a90cb86bc0, type: 3}
+      propertyPath: sfxGoodCard1
+      value: 
+      objectReference: {fileID: 8300000, guid: b866a16412bfffc44b96aac960591e1b, type: 3}
+    - target: {fileID: 1079480319299989942, guid: b1f1ac03d64bc8449baf31a90cb86bc0, type: 3}
+      propertyPath: sfxGoodCard3
+      value: 
+      objectReference: {fileID: 8300000, guid: 1db83c16b8536904da0b3eb21b06df45, type: 3}
+    - target: {fileID: 1079480319299989942, guid: b1f1ac03d64bc8449baf31a90cb86bc0, type: 3}
+      propertyPath: sfxGoodCard4
+      value: 
+      objectReference: {fileID: 8300000, guid: b3d53f9a14a341b4b93dbf967c97de1e, type: 3}
+    - target: {fileID: 1079480319299989942, guid: b1f1ac03d64bc8449baf31a90cb86bc0, type: 3}
+      propertyPath: sfxGoodCard3Volume
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079480319299989942, guid: b1f1ac03d64bc8449baf31a90cb86bc0, type: 3}
+      propertyPath: sfxGoodCard4Volume
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 1450931577796782248, guid: b1f1ac03d64bc8449baf31a90cb86bc0, type: 3}
       propertyPath: m_RootOrder
       value: 2

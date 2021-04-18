@@ -16,8 +16,8 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 575b8539b4bc3e24695c0710386c4765, type: 3}
   costMoney: 35
   costHealth: 0
-  description: "What were you thinking? You knew 11 was your limit\u2026 And at nine
-    o\u2019clock in the morning? It\u2019s not going to be a good day."
+  description: "Wow. You did it. You ate eleven whole Oink Dogs\u2014a new record.
+    You feel powerful for the rest of the day. You might even smile at the cute cashier."
   isGoodCard: 0
   effects:
   - effect: 4

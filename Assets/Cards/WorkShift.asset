@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5b0d92430474947ac2f611101aa521, type: 3}
   m_Name: WorkShift
   m_EditorClassIdentifier: 
-  name: Work A Shift
+  name: Work Shift
   image: {fileID: 21300000, guid: b341f99809c5d104182bd9f2a0f515ce, type: 3}
   costMoney: 0
   costHealth: 0
   description: "You take a deep breath as you enter the snout-shaped doors of America\u2019s
-    favorite pig-themed fast food restaurant. Time to get a little bit closer to
-    that $30 paycheck."
+    favorite pig-themed fast-food restaurant. Time to get a little bit closer to
+    that $30 paycheck. "
   isGoodCard: 1
   effects:
   - effect: 6

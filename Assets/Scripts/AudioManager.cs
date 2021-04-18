@@ -60,6 +60,14 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private float sfxGoodCard2Volume = 1f;
     [SerializeField]
+    private AudioClip sfxGoodCard3;
+    [SerializeField]
+    private float sfxGoodCard3Volume = 1f;
+    [SerializeField]
+    private AudioClip sfxGoodCard4;
+    [SerializeField]
+    private float sfxGoodCard4Volume = 1f;
+    [SerializeField]
     private AudioClip sfxLose;
     [SerializeField]
     private float sfxLoseVolume = 1f;
@@ -105,6 +113,8 @@ public class AudioManager : MonoBehaviour
     private AudioSource sfxEnterSource;
     private AudioSource sfxGoodCard1Source;
     private AudioSource sfxGoodCard2Source;
+    private AudioSource sfxGoodCard3Source;
+    private AudioSource sfxGoodCard4Source;
     private AudioSource sfxLoseSource;
     private AudioSource sfxMouseOverSource;
     private AudioSource sfxPauseSource;
@@ -148,6 +158,10 @@ public class AudioManager : MonoBehaviour
         sfxGoodCard1Source.clip = sfxGoodCard1;
         sfxGoodCard2Source = gameObject.AddComponent<AudioSource>();
         sfxGoodCard2Source.clip = sfxGoodCard2;
+        sfxGoodCard3Source = gameObject.AddComponent<AudioSource>();
+        sfxGoodCard3Source.clip = sfxGoodCard3;
+        sfxGoodCard4Source = gameObject.AddComponent<AudioSource>();
+        sfxGoodCard4Source.clip = sfxGoodCard4;
         sfxLoseSource = gameObject.AddComponent<AudioSource>();
         sfxLoseSource.clip = sfxLose;
         sfxMouseOverSource = gameObject.AddComponent<AudioSource>();
@@ -178,6 +192,8 @@ public class AudioManager : MonoBehaviour
             sfxEnterSource,
             sfxGoodCard1Source,
             sfxGoodCard2Source,
+            sfxGoodCard3Source,
+            sfxGoodCard4Source,
             sfxLoseSource,
             sfxMouseOverSource,
             sfxPauseSource,
@@ -220,6 +236,12 @@ public class AudioManager : MonoBehaviour
     // }
     // public void SetSfxGoodCard2Volume(float volume) {
     //     sfxGoodCard2Volume = volume;
+    // }
+    // public void SetSfxGoodCard3Volume(float volume) {
+    //     sfxGoodCard3Volume = volume;
+    // }
+    // public void SetSfxGoodCard4Volume(float volume) {
+    //     sfxGoodCard4Volume = volume;
     // }
     // public void SetSfxLoseVolume(float volume) {
     //     sfxLoseVolume = volume;
@@ -343,8 +365,8 @@ public class AudioManager : MonoBehaviour
             if (playSound1) {
                 PlayWithRandomRange(sfxGoodCard1Source, GetSfxVolume(sfxGoodCard1Volume));
             } else {
-                PlayWithRandomRange(sfxGoodCard2Source, GetSfxVolume(sfxGoodCard2Volume));
-            }
+                PlayWithRandomRange(sfxGoodCard3Source, GetSfxVolume(sfxGoodCard3Volume));
+            } 
         } else {
             if (playSound1) {
                 PlayWithRandomRange(sfxBadcard1Source, GetSfxVolume(sfxBadcard1Volume));

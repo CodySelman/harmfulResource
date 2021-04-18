@@ -17,7 +17,7 @@ MonoBehaviour:
   costMoney: 5
   costHealth: 0
   description: Move over, mommy. Our milkers are filled with carbon dioxide. Enjoy
-    your healthy dose of vitamin D.
+    your healthy dose of carbonated vitamin D.
   isGoodCard: 1
   effects:
   - effect: 3
